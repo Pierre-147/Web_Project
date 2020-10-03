@@ -7,7 +7,7 @@
 
     <body>
 
-        <h1> Créez votre compte </h1>
+        <h1> Créez votre compte !</h1>
         
         <form method="post" action="CreateAccount.php">
          <br />
@@ -17,10 +17,10 @@
             <input type="text" placeholder="e-mail"/><br /><br />
             <label> Password :</label>
             <input type="text" placeholder="password"/><br /><br />
-            <label> Confirme password : </label>
-            <input type="text" placeholder="confirme password"/><br /><br />
+            <label> Confirm your password : </label>
+            <input type="text" placeholder="confirm your password"/><br /><br />
        
-            <input type="submit" value="Valider" />
+            <input type="submit" class= bouton value="Valider" />
          <br /><br />  
         
        

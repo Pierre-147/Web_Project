@@ -27,3 +27,13 @@ body{
 h1{
     text-align: center;
 }
+
+.bouton{
+    border:none;
+	padding:6px 0 6px 0;
+	border-radius:8px;
+	box-shadow:3px 3px 12px #999;
+	background:#fff;
+	font:bold 13px Arial;
+    
+}
