@@ -1,0 +1,29 @@
+form{
+    display: block;
+    text-align: center;   
+    background-color: rgb(190, 190, 216);
+    margin: 0 auto;
+    width: 400px;
+   
+    
+    
+}
+
+label{
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+}
+
+input{
+    box-sizing: border-box;
+    width: 250px;
+}
+
+body{
+    background-color: rgb(136, 127, 127);
+}
+
+h1{
+    text-align: center;
+}
