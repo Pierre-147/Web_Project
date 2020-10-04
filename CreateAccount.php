@@ -14,11 +14,11 @@
             <label> Username : </label>
             <input type="text" placeholder="username"/><br /><br />
             <label> Mail : </label>
-            <input type="text" placeholder="e-mail"/><br /><br />
+            <input type="mail" placeholder="e-mail"/><br /><br />
             <label> Password :</label>
-            <input type="text" placeholder="password"/><br /><br />
+            <input type="password" placeholder="password"/><br /><br />
             <label> Confirm your password : </label>
-            <input type="text" placeholder="confirm your password"/><br /><br />
+            <input type="password" placeholder="confirm your password"/><br /><br />
        
             <input type="submit" class= bouton value="Valider" />
          <br /><br />  
