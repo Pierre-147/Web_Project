@@ -11,14 +11,14 @@
         
         <form method="post" action="CreateAccount.php">
          <br />
-            <label> Username : </label>
-            <input type="text" placeholder="username"/><br /><br />
-            <label> Mail : </label>
+            <label> Pseudo : </label>
+            <input type="text" placeholder="Pseudo"/><br /><br />
+            <label> E-Mail : </label>
             <input type="mail" placeholder="e-mail"/><br /><br />
-            <label> Password :</label>
-            <input type="password" placeholder="password"/><br /><br />
-            <label> Confirm your password : </label>
-            <input type="password" placeholder="confirm your password"/><br /><br />
+            <label> Mot de passe :</label>
+            <input type="password" placeholder="mot de passe"/><br /><br />
+            <label> Confirmer votre mot de passe : </label>
+            <input type="password" placeholder="confirmer votre mot de passe"/><br /><br />
        
             <input type="submit" class= bouton value="Valider" />
          <br /><br />  
