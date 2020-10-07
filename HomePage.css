@@ -1,0 +1,14 @@
+
+body{
+    background-image:url(imageserie.jpg);
+    font-family: 'Time New Roman';
+}
+Div{
+    border: 5px solid white;
+    background-color: black;
+}
+p
+{
+    color:white;
+    font-size:30px;
+}
