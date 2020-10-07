@@ -3,9 +3,9 @@
     <nav>
         <span>Nos Quizz</span>
         <nav class = "child">
-            <a href = "insert">Quizz 1</a>
-            <a href = "insert">Quizz 2</a>
+            <a href = "quiz1.php">Quiz 1</a>
+            <a href = "quizpage2">Quiz 2</a>
         </nav>
-        <a href = 'insert'>Votre compte</a>
+        <a href = 'CreateAccount.php'>Votre compte</a>
     </nav>
 </header>
