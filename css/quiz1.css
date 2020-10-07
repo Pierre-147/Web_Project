@@ -1,0 +1,17 @@
+#question {
+    text-decoration: underline;
+    margin-left: 2%;
+}
+
+#reponsePossible {
+    margin-left: 5%;
+}
+
+#reponsePossible input{
+    margin-right : 2%
+}
+
+#reponse{
+    margin: 1% 0% 1% 5%;    /*top right bottom left*/
+}
+
