@@ -1,0 +1,12 @@
+footer{
+    background-color: darkgoldenrod ;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+header{
+    background-color: darkgoldenrod ;
+    width: 100%;
+}
