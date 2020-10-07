@@ -1,0 +1,40 @@
+form{
+    display: block;
+    border-radius:8px;
+    text-align: center;   
+    background-color: rgb(190, 190, 216);
+    margin: 0 auto;
+    width: 400px;
+   
+    
+    
+}
+
+label{
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+}
+
+input{
+    box-sizing: border-box;
+    width: 250px;
+}
+
+body{
+    background-color: rgb(136, 127, 127);
+}
+
+h1{
+    text-align: center;
+}
+
+.bouton{
+    border:none;
+	padding:6px 0 6px 0;
+	border-radius:8px;
+	box-shadow:3px 3px 12px #999;
+	background:#fff;
+	font:bold 13px Arial;
+    
+}
