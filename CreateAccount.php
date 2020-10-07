@@ -2,10 +2,12 @@
 <html>
         <head>           
             <link href='css/CACss.css' rel='stylesheet'>
+            <link href='css/header.css' rel='stylesheet'>
         </head>
 
-
+        
     <body>
+        <?php include('header.php') ?>
 
         <h1> Créez votre compte !</h1>
         
@@ -27,7 +29,7 @@
         </form>
 
 
-      
+        
       
             
         
@@ -35,6 +37,7 @@
     
 
         
-
+        <?php include('footer.php') ?>
     </body>
+    
 </html>
