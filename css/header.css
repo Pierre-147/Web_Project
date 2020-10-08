@@ -10,3 +10,35 @@ header{
     background-color: darkgoldenrod ;
     width: 100%;
 }
+
+.child{
+    display: none;
+    flex-direction: column;
+}
+
+#drop:hover .child{
+    display: block;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+#links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: darkgreen;
+}
+
+#title{
+    font-size: 1.5cm;
+    text-align: center;
+}
