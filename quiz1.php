@@ -27,13 +27,13 @@
                 <p>
                     <div id="reponsePossible">
                         <label for="q2">Yoda</label>
-                        <input type="checkbox" name="q2a" value="rep1">
+                        <input type="checkbox" name="q2a">
                         <label for="q2">Jar Jar Binks</label>
-                        <input type="checkbox" name="q2b" value="rep2">
+                        <input type="checkbox" name="q2b">
                         <label for="q2">R2D2</label>
-                        <input type="checkbox" name="q2c" value="rep3">
+                        <input type="checkbox" name="q2c">
                         <label for="q2">Ahsoka Tano</label>
-                        <input type="checkbox" name="q2d" value="rep4">
+                        <input type="checkbox" name="q2d">
                     </div>
                 </p>
                 <label id="question" for="q3">Question 3 : Dans La Revanche des Siths, quel adversaire affronte Maitre Yoda ?</label> 

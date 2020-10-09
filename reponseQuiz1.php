@@ -22,7 +22,7 @@
                 }
                 else
                 {
-                    echo("Faux la reponse etait : 6");
+                    echo("Faux la reponse était : 6");
                 } 
             }
             else
@@ -36,11 +36,11 @@
             <?php
             if (!(isset($_GET['q2a'])) && isset($_GET['q2b']) && isset($_GET['q2c']) && !(isset($_GET['q2d'])))
             {
-                echo("bonne reponse");
+                echo("Bonne réponse");
             }
             else
             {
-                echo("Faux les reponses etaient : Jar Jar et R2D2");
+                echo("Faux les réponses étaient : Jar Jar et R2D2");
             }
             ?>
         </div>
@@ -53,7 +53,7 @@
             }
             else
             {
-                echo("Faux la reponse etait : Dark Sidious");
+                echo("Faux la reponse était : Dark Sidious");
             }
             ?>
         </div>
@@ -66,7 +66,7 @@
             }
             else
             {
-                echo("Faux la reponse etait : 1977");
+                echo("Faux la reponse était : 1977");
             }
             ?>
         </div>
