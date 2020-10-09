@@ -27,13 +27,13 @@
         <label id="question">Question 2: Lesquels de ces personnages ne sont pas des Jedi ?</label>
         <div id="reponse">
             <?php
-            if ($_GET['q2a'] !== "rep1" && $_GET['q2b'] === "rep2" && $_GET['q2c'] == "rep3" && $_GET['q2d'] !== "rep4")
+            if (!(isset($_GET['q2a'])) && isset($_GET['q2b']) && isset($_GET['q2c']) && !(isset($_GET['q2d'])))
             {
                 echo("Bonne réponse");
             }
             else
             {
-                echo("Faux les reponses etaient : Ahsoka Tano et R2D2");
+                echo("Faux les reponses etaient : Jar Jar et R2D2");
             }
             ?>
         </div>
