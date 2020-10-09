@@ -25,7 +25,8 @@ body{
 
 h1{
     text-align: center;
-    color: #f5faff;
+    color: #e2e8ee;
+    text-decoration: underline;
 }
 
 .bouton{
