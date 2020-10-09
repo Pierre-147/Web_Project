@@ -36,7 +36,7 @@
             <?php
             if (!(isset($_GET['q2a'])) && isset($_GET['q2b']) && isset($_GET['q2c']) && !(isset($_GET['q2d'])))
             {
-                if
+                echo("bonne reponse")
             }
             else
             {
