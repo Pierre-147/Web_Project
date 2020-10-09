@@ -7,6 +7,12 @@ form{
     width: 400px;  
 }
 
+.formulaire{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 label{
     display: inline-block;
     text-align: center;
