@@ -14,27 +14,31 @@
         <label id="question">Question 1: Combien de Star Wars à realisé Georges Lucas ?</label>
         <div id="reponse">
             <?php
-            if($_GET['q1'] === "rep1")
+            if (isset($_GET['q1']))
             {
-                echo("Bonne réponse");
+                if($_GET['q1'] === "rep1")
+                {
+                    echo("Bonne réponse");
+                }
+                else
+                {
+                    echo("Faux la reponse etait : 6");
+                } 
             }
             else
             {
                 echo("Faux la reponse etait : 6");
-            }
+            }         
             ?>
         </div>
         <label id="question">Question 2: Lesquels de ces personnages ne sont pas des Jedi ?</label>
         <div id="reponse">
             <?php
-            if ($_GET['q2a'] !== "rep1" && $_GET['q2b'] === "rep2" && $_GET['q2c'] == "rep3" && $_GET['q2d'] !== "rep4")
+            if(isset($_GET['q2b'] && isset($_GET['q2c']))
             {
-                echo("Bonne réponse");
+                if
             }
-            else
-            {
-                echo("Faux les reponses etaient : Ahsoka Tano et R2D2");
-            }
+
             ?>
         </div>
         <label id="question">Question 3: Dans La Revanche des Siths, quel adversaire affronte Maitre Yoda ?</label>
