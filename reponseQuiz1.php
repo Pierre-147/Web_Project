@@ -22,12 +22,12 @@
                 }
                 else
                 {
-                    echo("Faux la reponse était : 6");
+                    echo("Faux la réponse était : 6");
                 } 
             }
             else
             {
-                echo("Faux la reponse etait : 6");
+                echo("Faux la réponse etait : 6");
             }         
             ?>
         </div>
@@ -53,7 +53,7 @@
             }
             else
             {
-                echo("Faux la reponse était : Dark Sidious");
+                echo("Faux la réponse était : Dark Sidious");
             }
             ?>
         </div>
@@ -66,7 +66,7 @@
             }
             else
             {
-                echo("Faux la reponse était : 1977");
+                echo("Faux la réponse était : 1977");
             }
             ?>
         </div>
