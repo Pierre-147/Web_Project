@@ -34,11 +34,14 @@
         <label id="question">Question 2: Lesquels de ces personnages ne sont pas des Jedi ?</label>
         <div id="reponse">
             <?php
-            if(isset($_GET['q2b'] && isset($_GET['q2c']))
+            if (!(isset($_GET['q2a'])) && isset($_GET['q2b']) && isset($_GET['q2c']) && !(isset($_GET['q2d'])))
             {
                 if
             }
-
+            else
+            {
+                echo("Faux les reponses etaient : Jar Jar et R2D2");
+            }
             ?>
         </div>
         <label id="question">Question 3: Dans La Revanche des Siths, quel adversaire affronte Maitre Yoda ?</label>
