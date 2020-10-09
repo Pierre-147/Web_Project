@@ -11,7 +11,7 @@
         <div id="page-container">
             <h3>Quiz 1: Star Wars</h3>
             <br/>
-            <form action="/reponseQuiz1.php" method="GET">
+            <form action="reponseQuiz1.php" method="GET">
                 <label id="question" for="q1">Question 1 : Combien de Star Wars à realisé Georges Lucas ?</label> 
                 <p>
                     <div id="reponsePossible">
