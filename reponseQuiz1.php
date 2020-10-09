@@ -5,8 +5,10 @@
         <meta charset="iso-8859-1"/>
         <title>Reponses : Star Wars</title>
         <link href="css/quiz1.css" rel="stylesheet"/>
+        <link href="css/body.css" rel="stylesheet"/>
     </head>
     <body>
+        <?php include('header.php');?>
         <h3>Quiz 1: Star Wars</h3>
         <br/>
         <label id="question">Question 1: Combien de Star Wars à realisé Georges Lucas ?</label>
@@ -61,5 +63,6 @@
             }
             ?>
         </div>
+        <?php include('footer.php');?>
     </body>
 </html>

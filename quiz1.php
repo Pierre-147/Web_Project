@@ -4,8 +4,10 @@
         <meta charset="iso-8859-1"/>
         <title>Quiz 1 : Star Wars</title>
         <link href="css/quiz1.css" rel="stylesheet"/>
+        <link href="css/body.css" rel="stylesheet"/>
     </head>
     <body>
+        <?php include('header.php');?>
         <div id="page-container">
             <h3>Quiz 1: Star Wars</h3>
             <br/>
@@ -57,7 +59,7 @@
                     </div>
                 </p>
             </form>
-
         </div>
+        <?php include('footer.php');?>
     </body>
 </html>
