@@ -1,4 +1,5 @@
-<?php include('ouverture.php'); ?>
+<?php include('ouverture.php');
+?>
 
 
 <!DOCTYPE html>
@@ -12,26 +13,48 @@
     <body>
         <?php include('header.php');?>
         <?php
-            $title = "Star Wars";
-            $tabQuestion = array(
-                "Combien de Star Wars à realisé Georges Lucas ?",
-                "Lesquels de ces personnages ne sont pas des Jedi ?",
-                "Dans La Revanche des Siths, quel adversaire affronte Maitre Yoda ?",
-                "Quel est l'année de sortie du premier Star Wars ?",
-            );
-            $tabLabelReponse = array(
-                array(6, 9, 11),
-                array("Yoda", "Jar Jar Binks", "R2D2", "Ahsoka Tano"),
-                array("Dark Plageis", "Dark Maul", "Dark Sidious"),
-                "1977"
-            );
-            $tabReponse = array(
-                "6",
-                "0110",
-                "3",
-                "1977",
-            );
+            $req = "SELECT quizz_name FROM quizz WHERE quizz_id = 1";
+            $res=$database->query($req);
+            $title = $res->fetch()[0];
+
+            $req = "SELECT question_title FROM question WHERE question_quizz_id = 1";
+            $res=$database->query($req);
+            $tabQuestion = array();
+            while ($donnee = $res->fetch()){
+                array_push($tabQuestion, $donnee[0]);
+            }
+            
+            $req = "SELECT question_id FROM question WHERE question_quizz_id = 1";
+            $res=$database->query($req);
+            $tabLabelReponse = array();
+            while ($donnee = $res->fetch()){
+                $rep_list = array();
+                $req2 = "SELECT answer_text FROM answer WHERE answer_question_id = $donnee[0]";
+                $res2=$database->query($req2);
+                while ($donnee2 = $res2->fetch()){
+                    array_push($rep_list, $donnee2[0]);
+                }
+                array_push($tabLabelReponse, $rep_list);
+            }
+
+            
+            $req = "SELECT question_id FROM question WHERE question_quizz_id = 1";
+            $res=$database->query($req);
+            $tabReponse = array();
+            while ($donnee = $res->fetch()){
+                $validity_list = array();
+                $req2 = "SELECT is_valid_answer FROM answer WHERE answer_question_id = $donnee[0]";
+                $res2=$database->query($req2);
+                while ($donnee2 = $res2->fetch()){
+                    array_push($validity_list, $donnee2[0]);
+                }
+                array_push($tabReponse, $validity_list);
+            }
+
+            var_dump($tabLabelReponse)
         ?>
+
+
         <h3>Quiz 1: <?php echo($title);?></h3>
         <br/>
         <label id="question">Question 1: <?php echo($tabQuestion[0]);?></label>
