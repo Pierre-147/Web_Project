@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 21 oct. 2020 à 17:22
+-- Généré le : mer. 21 oct. 2020 à 17:42
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.3.21
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `question` (
 --
 
 INSERT INTO `question` (`question_id`, `question_title`, `question_quizz_id`, `question_input_type`) VALUES
-(1, 'cb de film ?', 1, 'radio'),
+(1, 'Combien de film ?', 1, 'radio'),
 (2, 'quel perso', 1, 'checkbox'),
 (3, 'adversaire Yoda', 1, 'selecteur'),
 (4, 'quel annee', 1, 'text'),
