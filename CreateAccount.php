@@ -1,3 +1,6 @@
+<?php include('ouverture.php'); ?>
+
+
 <!DOCTYPE html>
 <html>
     <head>           

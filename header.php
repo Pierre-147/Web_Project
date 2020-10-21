@@ -1,6 +1,6 @@
 <header>
     <div id = title>
-        <a href = "homepage.php">Le bazard des films</a>
+        <a href = "test.php">Le bazard des films</a>
     </div>
     <div id = 'links'>
         <div id = 'drop'>Nos Quiz
