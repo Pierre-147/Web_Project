@@ -30,24 +30,24 @@
                 <p>
                     <div id="reponsePossible">
                         <label><?php echo($tabLabelReponse[0][0]);?></label>
-                        <input type="radio" id="q1" name="q1" value="rep1">
+                        <input type="radio" id="q1" name="q1" value=<?php echo($tabLabelReponse[0][0]);?>>
                         <label><?php echo($tabLabelReponse[0][1]);?></label>
-                        <input type="radio" id="q1" name="q1" value="rep2">
+                        <input type="radio" id="q1" name="q1" value=<?php echo($tabLabelReponse[0][1]);?>>
                         <label><?php echo($tabLabelReponse[0][2]);?></label>
-                        <input type="radio" id="q1" name="q1" value="rep3">
+                        <input type="radio" id="q1" name="q1" value=<?php echo($tabLabelReponse[0][2]);?>>
                     </div>
                 </p>
                 <label id="question" for="q2">Question 2 : <?php echo($tabQuestion[1]);?></label> 
                 <p>
                     <div id="reponsePossible">
                         <label for="q2"><?php echo($tabLabelReponse[1][0]);?></label>
-                        <input type="checkbox" name="q2a">
+                        <input type="checkbox" name=<?php echo($tabLabelReponse[1][0]);?>>
                         <label for="q2"><?php echo($tabLabelReponse[1][1]);?></label>
-                        <input type="checkbox" name="q2b">
+                        <input type="checkbox" name=<?php echo($tabLabelReponse[1][0]);?>>
                         <label for="q2"><?php echo($tabLabelReponse[1][2]);?></label>
-                        <input type="checkbox" name="q2c">
+                        <input type="checkbox" name=<?php echo($tabLabelReponse[1][0]);?>>
                         <label for="q2"><?php echo($tabLabelReponse[1][3]);?></label>
-                        <input type="checkbox" name="q2d">
+                        <input type="checkbox" name=<?php echo($tabLabelReponse[1][0]);?>>
                     </div>
                 </p>
                 <label id="question" for="q3">Question 3 : <?php echo($tabQuestion[2]);?></label> 

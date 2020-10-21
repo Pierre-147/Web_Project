@@ -21,11 +21,12 @@
                 array(6, 9, 11),
                 array("Yoda", "Jar Jar Binks", "R2D2", "Ahsoka Tano"),
                 array("Dark Plageis", "Dark Maul", "Dark Sidious"),
+                "1977"
             );
             $tabReponse = array(
-                "rep1",
-                "",
-                "rep3",
+                "6",
+                "0110",
+                "3",
                 "1977",
             );
         ?>
