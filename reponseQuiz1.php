@@ -49,12 +49,19 @@
         <label id="question">Question 2: <?php echo($tabQuestion[1]);?></label>
         <div id="reponse">
             <?php
+            $totalBonneReponse=0;
+            for($i=0;$i<count($tabReponse[1]); $i++)
+            {
+                if ($tabReponse[1][$i]=="1")
+                    $totalBonneReponse++;
+            }
             //on initialise un boolean, on suppose que la reponse est vrai sauf si on ne repond rien
             if(Count($_GET['q2'])!=0)
                 $test = true;
             else
                 $test= false;
 
+            $bonneReponseInput=0;
             //on parcourt les reponses envoyées
             for ($i = 0; $i< count($_GET['q2']); $i++)
             {
@@ -70,9 +77,11 @@
 
                 if($tabReponse[1][$indexRecherche] != "1")
                     $test = false; 
+                else
+                    $bonneReponseInput++;
             }
 
-            if ($test == true)
+            if ($test == true && $totalBonneReponse==$bonneReponseInput)
                 echo("Bonne réponse");
             else 
             {

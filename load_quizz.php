@@ -37,6 +37,4 @@
                 }
                 array_push($tabReponse, $validity_list);
             }
-
-            var_dump($tabLabelReponse)
         ?>
