@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 23 oct. 2020 à 12:02
+-- Généré le : ven. 23 oct. 2020 à 14:06
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -91,14 +91,14 @@ CREATE TABLE IF NOT EXISTS `question` (
 --
 
 INSERT INTO `question` (`question_id`, `question_title`, `question_quizz_id`, `question_input_type`) VALUES
-(1, 'Combien de Star Wars à réalisé Georges Lucas ? ', 1, 'radio'),
+(1, 'Combien de Star Wars a realise Georges Lucas ? ', 1, 'radio'),
 (2, 'Lesquels de ces personnages ne sont pas des Jedi', 1, 'checkbox'),
 (3, 'Dans La Revanche des Siths quel adversaire affronte Maitre Yoda', 1, 'selecteur'),
-(4, 'Quel est l\'année de sorti du premier Star Wars', 1, 'text'),
-(5, 'Dans le film \"Pulp fiction\", où meurt le personnage incarné par John Travolta ?', 2, 'radio'),
+(4, 'Quel est l\'annee de sorti du premier Star Wars', 1, 'text'),
+(5, 'Dans le film \"Pulp fiction\", ou meurt le personnage incarne par John Travolta ?', 2, 'radio'),
 (6, 'Parmi ces personnages, quels sont ceux qui meurent dans le film \"Django unchained\" ?', 2, 'checkbox'),
-(7, 'Quel est le 1er film réalisé par Quentin Tarantino ?', 2, 'select'),
-(8, 'Combien de films Quentin Tarantino a-t-il rélisé ?', 2, 'number');
+(7, 'Quel est le 1er film realise par Quentin Tarantino ?', 2, 'select'),
+(8, 'Combien de films Quentin Tarantino a-t-il realise ?', 2, 'number');
 
 -- --------------------------------------------------------
 
