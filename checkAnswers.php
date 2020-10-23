@@ -39,31 +39,34 @@
                 if ($tabReponse[1][$i]=="1")
                     $totalBonneReponse++;
             }
+
             //on initialise un boolean, on suppose que la reponse est vrai sauf si on ne repond rien
-            if(Count($_GET['q2'])!=0)
+            if(isset($_GET['q2'])!=0)
+            {
                 $test = true;
+
+                $bonneReponseInput=0;
+                //on parcourt les reponses envoyées
+                for ($i = 0; $i< count($_GET['q2']); $i++)
+                {
+                    $varRep=urldecode($_GET['q2'][$i]);     //entre utilisateur
+
+                    $indexRecherche=0;
+                    //on verifie que c'est une bonne reponse
+                    for($j=0; $j<count($tabLabelReponse); $j++)
+                    {
+                        if ($varRep == $tabLabelReponse[1][$j])
+                            $indexRecherche=$j;
+                    }
+
+                    if($tabReponse[1][$indexRecherche] != "1")
+                        $test = false; 
+                    else
+                        $bonneReponseInput++;
+                }
+            }
             else
                 $test= false;
-
-            $bonneReponseInput=0;
-            //on parcourt les reponses envoyées
-            for ($i = 0; $i< count($_GET['q2']); $i++)
-            {
-                $varRep=urldecode($_GET['q2'][$i]);     //entre utilisateur
-
-                $indexRecherche=0;
-                //on verifie que c'est une bonne reponse
-                for($j=0; $j<count($tabLabelReponse); $j++)
-                {
-                    if ($varRep == $tabLabelReponse[1][$j])
-                        $indexRecherche=$j;
-                }
-
-                if($tabReponse[1][$indexRecherche] != "1")
-                    $test = false; 
-                else
-                    $bonneReponseInput++;
-            }
 
             if ($test == true && $totalBonneReponse==$bonneReponseInput)
                 echo("Bonne réponse");
