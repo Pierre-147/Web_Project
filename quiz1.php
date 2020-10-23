@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html>
+    <!--On charge la base de donnee-->
     <?php $varquiz=1; include('load_quizz.php');?>
     <head>
         <meta charset="iso-8859-1"/>

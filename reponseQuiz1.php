@@ -13,9 +13,9 @@
     </head>
     <body>
         <?php include ('header.php'); ?>
-        
         <h3>Quiz 1: <?php echo($title);?></h3>
         <br/>
+        <!--On appelle le mecanisme de verification de reponse-->
         <?php include ('checkAnswers.php');?>
         <?php include('footer.php');?>
     </body>
