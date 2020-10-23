@@ -1,12 +1,4 @@
-<?php include('ouverture.php'); 
-$req = "SELECT answer_text FROM answer WHERE answer_question_id = 2";
-$res=$database->query($req);
-while ($donnee=$res->fetch()){
-    echo($donnee[0]);
-}
-    
-
-?>
+<?php include('ouverture.php');?>
 
 <html>
 <head>
