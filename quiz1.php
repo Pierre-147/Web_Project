@@ -30,24 +30,24 @@
                 <p>
                     <div id="reponsePossible">
                         <label><?php echo($tabLabelReponse[0][0]);?></label>
-                        <input type="radio" id="q1" name="q1" value=<?php echo($tabLabelReponse[0][0]);?>>
+                        <input type="radio" id="q1" name="q1" value=<?php echo(urlencode($tabLabelReponse[0][0]));?>>
                         <label><?php echo($tabLabelReponse[0][1]);?></label>
-                        <input type="radio" id="q1" name="q1" value=<?php echo($tabLabelReponse[0][1]);?>>
+                        <input type="radio" id="q1" name="q1" value=<?php echo(urlencode($tabLabelReponse[0][1]));?>>
                         <label><?php echo($tabLabelReponse[0][2]);?></label>
-                        <input type="radio" id="q1" name="q1" value=<?php echo($tabLabelReponse[0][2]);?>>
+                        <input type="radio" id="q1" name="q1" value=<?php echo(urlencode($tabLabelReponse[0][2]));?>>
                     </div>
                 </p>
                 <label id="question" for="q2">Question 2 : <?php echo($tabQuestion[1]);?></label> 
                 <p>
                     <div id="reponsePossible">
                         <label for="q2"><?php echo($tabLabelReponse[1][0]);?></label>
-                        <input type="checkbox" name=<?php echo($tabLabelReponse[1][0]);?>>
+                        <input type="checkbox" name="q2[]" value=<?php echo(urlencode($tabLabelReponse[1][0]));?>>
                         <label for="q2"><?php echo($tabLabelReponse[1][1]);?></label>
-                        <input type="checkbox" name=<?php echo($tabLabelReponse[1][0]);?>>
+                        <input type="checkbox" name="q2[]" value=<?php echo(urlencode($tabLabelReponse[1][1]));?>>
                         <label for="q2"><?php echo($tabLabelReponse[1][2]);?></label>
-                        <input type="checkbox" name=<?php echo($tabLabelReponse[1][0]);?>>
+                        <input type="checkbox" name="q2[]" value=<?php echo(urlencode($tabLabelReponse[1][2]));?>>
                         <label for="q2"><?php echo($tabLabelReponse[1][3]);?></label>
-                        <input type="checkbox" name=<?php echo($tabLabelReponse[1][0]);?>>
+                        <input type="checkbox" name="q2[]" value=<?php echo(urlencode($tabLabelReponse[1][3]));?>>
                     </div>
                 </p>
                 <label id="question" for="q3">Question 3 : <?php echo($tabQuestion[2]);?></label> 
@@ -55,9 +55,9 @@
                     <div id="reponsePossible">
                         <select name="q3">
                             <option value="">--Please choose an option--</option>
-                            <option value="rep1"><?php echo($tabLabelReponse[2][0]);?></option>
-                            <option value="rep2"><?php echo($tabLabelReponse[2][1]);?></option>
-                            <option value="rep3"><?php echo($tabLabelReponse[2][2]);?></option>
+                            <option value=<?php echo($tabLabelReponse[2][0]);?>><?php echo($tabLabelReponse[2][0]);?></option>
+                            <option value=<?php echo($tabLabelReponse[2][1]);?>><?php echo($tabLabelReponse[2][1]);?></option>
+                            <option value=<?php echo($tabLabelReponse[2][2]);?>><?php echo($tabLabelReponse[2][2]);?></option>
                         </select>
                     </div>
                 </p>
