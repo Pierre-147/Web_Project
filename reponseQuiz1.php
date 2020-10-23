@@ -1,4 +1,5 @@
-<?php include('ouverture.php'); ?>
+<?php include('ouverture.php');
+?>
 
 
 <!DOCTYPE html>
@@ -10,28 +11,7 @@
         <link href="css/body.css" rel="stylesheet"/>
     </head>
     <body>
-        <?php include('header.php');?>
-        <?php
-            $title = "Star Wars";
-            $tabQuestion = array(
-                "Combien de Star Wars à realisé Georges Lucas ?",
-                "Lesquels de ces personnages ne sont pas des Jedi ?",
-                "Dans La Revanche des Siths, quel adversaire affronte Maitre Yoda ?",
-                "Quel est l'année de sortie du premier Star Wars ?",
-            );
-            $tabLabelReponse = array(
-                array(6, 9, 11),
-                array("Yoda", "Jar Jar Binks", "R2D2", "Ahsoka Tano"),
-                array("Dark Plageis", "Dark Maul", "Dark Sidious"),
-                "1977"
-            );
-            $tabReponse = array(
-                "6",
-                "0110",
-                "3",
-                "1977",
-            );
-        ?>
+        <?php include('load_quizz.php');?>
         <h3>Quiz 1: <?php echo($title);?></h3>
         <br/>
         <label id="question">Question 1: <?php echo($tabQuestion[0]);?></label>
