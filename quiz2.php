@@ -2,10 +2,12 @@
 
 <!DOCTYPE html>
 <html>
+    <?php $varquiz=2; include('load_quizz.php');?>
     <head>
-        <link href='css/body.css' rel='stylesheet'>
+        <meta charset="iso-8859-1"/>
+        <title>Quiz 2 : <?php echo($title);?></title>
         <link href="css/quiz1.css" rel="stylesheet"/>
-        <title>Quiz 2 : Quentin Tarantino</title>
+        <link href="css/body.css" rel="stylesheet"/>
     </head>
     <body> 
     <?php include("header.php");?>
@@ -56,7 +58,7 @@
                 <label id="question" for="q4">Question 4 : <?php echo($tabQuestion[3]);?></label> 
                 <p>
                     <div id="reponsePossible">
-                       <input type="number" id="q4" name="q4" placeholder="2000" min="1800" max="2020"> 
+                       <input type="number" id="q4" name="q4" placeholder="2000" min="0" max="3000"> 
                     </div>
                 </p>
                 <div id="reponsePossible">

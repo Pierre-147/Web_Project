@@ -1,16 +1,16 @@
 <?php
-    $req = "SELECT quizz_name FROM quizz WHERE quizz_id = 1";
+    $req = "SELECT quizz_name FROM quizz WHERE quizz_id = $varquiz";
     $res=$database->query($req);
     $title = $res->fetch()[0];
 
-    $req = "SELECT question_title FROM question WHERE question_quizz_id = 1";
+    $req = "SELECT question_title FROM question WHERE question_quizz_id = $varquiz";
     $res=$database->query($req);
     $tabQuestion = array();
     while ($donnee = $res->fetch()){
         array_push($tabQuestion, $donnee[0]);
     }
     
-    $req = "SELECT question_id FROM question WHERE question_quizz_id = 1";
+    $req = "SELECT question_id FROM question WHERE question_quizz_id = $varquiz";
     $res=$database->query($req);
     $tabLabelReponse = array();
     while ($donnee = $res->fetch()){
@@ -24,7 +24,7 @@
     }
 
     
-    $req = "SELECT question_id FROM question WHERE question_quizz_id = 1";
+    $req = "SELECT question_id FROM question WHERE question_quizz_id = $varquiz";
     $res=$database->query($req);
     $tabReponse = array();
     while ($donnee = $res->fetch()){

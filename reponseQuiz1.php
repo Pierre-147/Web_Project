@@ -4,14 +4,16 @@
 
 <!DOCTYPE html>
 <html>
+    <?php $varquiz=1; include('load_quizz.php');?>
     <head>
         <meta charset="iso-8859-1"/>
-        <title>Reponses : Star Wars</title>
+        <title>Reponses : <?php echo($title);?></title>
         <link href="css/quiz1.css" rel="stylesheet"/>
         <link href="css/body.css" rel="stylesheet"/>
     </head>
     <body>
-        <?php include('load_quizz.php');?>
+        <?php include ('header.php'); ?>
+        
         <h3>Quiz 1: <?php echo($title);?></h3>
         <br/>
         <label id="question">Question 1: <?php echo($tabQuestion[0]);?></label>

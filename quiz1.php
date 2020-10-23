@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 <html>
+    <?php $varquiz=1; include('load_quizz.php');?>
     <head>
         <meta charset="iso-8859-1"/>
-        <title>Quiz 1 : </title>
+        <title>Reponses : <?php echo($title);?></title>
         <link href="css/quiz1.css" rel="stylesheet"/>
         <link href="css/body.css" rel="stylesheet"/>
     </head>
@@ -52,7 +53,7 @@
                 <label id="question" for="q4">Question 4 : <?php echo($tabQuestion[3]);?></label> 
                 <p>
                     <div id="reponsePossible">
-                       <input type="number" id="q4" name="q4" placeholder="2000" min="1800" max="2020"> 
+                       <input type="number" id="q4" name="q4" placeholder="2000" min="0" max="3000"> 
                     </div>
                 </p>
                 <p>

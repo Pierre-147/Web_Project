@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 <html>
+    <?php $varquiz=2; include('load_quizz.php');?>
     <head>
         <meta charset="iso-8859-1"/>
-        <title>Reponses : Quentin Tarantino</title>
+        <title>Reponses : <?php echo($title);?></title>
         <link href="css/quiz1.css" rel="stylesheet"/>
         <link href="css/body.css" rel="stylesheet"/>
     </head>
