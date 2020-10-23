@@ -11,7 +11,7 @@
         <?php include('header.php');?>
 
         <?php
-        var_dump($_GET);
+        //var_dump($_GET);
             $title = "Star Wars";
             $tabQuestion = array(
                 "Combien de Star Wars à realisé Georges Lucas ?",
@@ -41,7 +41,7 @@
             $indexRecherche=0;
             for($i=0; $i<count($tabReponse[0]);$i++)
             {
-                if ($tabReponse[0][$i]==="1")
+                if ($tabReponse[0][$i]=="1")
                 {
                     $indexRecherche=$i;
                 }
@@ -92,7 +92,6 @@
                     $test = false; 
             }
 
-            
             if ($test == true)
                 echo("Bonne réponse");
             else 
@@ -101,42 +100,78 @@
                 for($i=0; $i<count($tabLabelReponse);$i++)
                 {
                     if($tabReponse[1][$i]=="1")
-                        $reponseCorrect->append($tabLabelReponse[1][$i]);
+                        $reponseCorrect->append($tabLabelReponse[1][$i]);  
                 }
-            }
-            echo("Faux les réponses étaient : ");
-            for($i=0; $i<count($reponseCorrect); $i++)
-            {
-                echo($reponseCorrect[$i]);
-                if ($i != count($reponseCorrect)-1)
-                    echo(", ");
+                echo("Faux les réponses étaient : ");
+                for($i=0; $i<count($reponseCorrect); $i++)
+                {
+                    echo($reponseCorrect[$i]);
+                    if ($i != count($reponseCorrect)-1)
+                        echo(", ");
+                }
             }
             ?>
         </div>
         <label id="question">Question 3: <?php echo($tabQuestion[2]);?></label>
         <div id="reponse">
             <?php
-            if($_GET['q3'] === $tabReponse[2])
+            $indexRecherche=0;
+            for($i=0; $i<count($tabReponse[2]);$i++)
             {
-                echo("Bonne réponse");
+                if ($tabReponse[2][$i]=="1")
+                {
+                    $indexRecherche=$i;
+                }
+            }
+            $bonneReponse = $tabLabelReponse[2][$indexRecherche];
+
+            if (isset($_GET['q3']))
+            {
+                $varRep = urldecode($_GET['q3']);      //entree de l'utilisateur
+                if($varRep == $bonneReponse)
+                {
+                    echo("Bonne réponse");
+                }
+                else
+                {
+                    echo("Faux la réponse était : ".$bonneReponse);
+                } 
             }
             else
             {
-                echo("Faux la réponse était : ".$tabLabelReponse[2][2]);
-            }
+                echo("Faux la réponse etait : ".$bonneReponse);
+            }         
             ?>
         </div>
         <label id="question">Question 4: <?php echo($tabQuestion[3]);?></label>
         <div id="reponse">
             <?php
-            if($_GET['q4'] === $tabReponse[3])
+            $indexRecherche=0;
+            for($i=0; $i<count($tabReponse[3]);$i++)
             {
-                echo("Bonne réponse");
+                if ($tabReponse[3][$i]=="1")
+                {
+                    $indexRecherche=$i;
+                }
+            }
+            $bonneReponse = $tabLabelReponse[3][$indexRecherche];
+
+            if (isset($_GET['q4']))
+            {
+                $varRep = $_GET['q4'];      //entree de l'utilisateur
+                if($varRep == $bonneReponse)
+                {
+                    echo("Bonne réponse");
+                }
+                else
+                {
+                    echo("Faux la réponse était : ".$bonneReponse);
+                } 
             }
             else
             {
-                echo("Faux la réponse était : ".$tabReponse[3]);
-            }
+                echo("Faux la réponse etait : ".$bonneReponse);
+            }         
             ?>
         </div>
         <?php include('footer.php');?>

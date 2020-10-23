@@ -55,9 +55,9 @@
                     <div id="reponsePossible">
                         <select name="q3">
                             <option value="">--Please choose an option--</option>
-                            <option value=<?php echo($tabLabelReponse[2][0]);?>><?php echo($tabLabelReponse[2][0]);?></option>
-                            <option value=<?php echo($tabLabelReponse[2][1]);?>><?php echo($tabLabelReponse[2][1]);?></option>
-                            <option value=<?php echo($tabLabelReponse[2][2]);?>><?php echo($tabLabelReponse[2][2]);?></option>
+                            <option value=<?php echo(urlencode($tabLabelReponse[2][0]));?>><?php echo($tabLabelReponse[2][0]);?></option>
+                            <option value=<?php echo(urlencode($tabLabelReponse[2][1]));?>><?php echo($tabLabelReponse[2][1]);?></option>
+                            <option value=<?php echo(urlencode($tabLabelReponse[2][2]));?>><?php echo($tabLabelReponse[2][2]);?></option>
                         </select>
                     </div>
                 </p>
