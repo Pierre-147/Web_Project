@@ -1,8 +1,10 @@
 <?php
+    // Load the name of the quizz in its own variable
     $req = "SELECT quizz_name FROM quizz WHERE quizz_id = $varquiz";
     $res=$database->query($req);
     $title = $res->fetch()[0];
 
+    // put all of this qizz's question wording in an array
     $req = "SELECT question_title FROM question WHERE question_quizz_id = $varquiz";
     $res=$database->query($req);
     $tabQuestion = array();
@@ -10,6 +12,7 @@
         array_push($tabQuestion, $donnee[0]);
     }
     
+    // create an array with the different answers for each questions
     $req = "SELECT question_id FROM question WHERE question_quizz_id = $varquiz";
     $res=$database->query($req);
     $tabLabelReponse = array();
@@ -23,7 +26,7 @@
         array_push($tabLabelReponse, $rep_list);
     }
 
-    
+    // create an array with the validity of the different answers of each questions (0 false, 1 true)
     $req = "SELECT question_id FROM question WHERE question_quizz_id = $varquiz";
     $res=$database->query($req);
     $tabReponse = array();
