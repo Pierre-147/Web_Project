@@ -10,60 +10,58 @@
     <body> 
     <?php include("header.php");?>
         <form action="reponseQuiz2.php" method="GET">
-            <h3>Quiz 2 : Quentin Tarantino</h3>
-            <label id="question" for="q1">Question 1 : Dans le film "Pulp fiction", où meurt le personnage incarné par John Travolta ?</label>
-            <p>
+            <h3>Quiz 2 : <?php echo($title);?></h3>
+            <label id="question" for="q1">Question 1 : <?php echo($tabQuestion[0]);?></label> 
+                <p>
+                    <div id="reponsePossible">
+                        <label><?php echo($tabLabelReponse[0][0]);?></label>
+                        <input type="radio" id="q1" name="q1" value=<?php echo(urlencode($tabLabelReponse[0][0]));?>>
+                        <label><?php echo($tabLabelReponse[0][1]);?></label>
+                        <input type="radio" id="q1" name="q1" value=<?php echo(urlencode($tabLabelReponse[0][1]));?>>
+                        <label><?php echo($tabLabelReponse[0][2]);?></label>
+                        <input type="radio" id="q1" name="q1" value=<?php echo(urlencode($tabLabelReponse[0][2]));?>>
+                        <label><?php echo($tabLabelReponse[0][3]);?></label>
+                        <input type="radio" id="q1" name="q1" value=<?php echo(urlencode($tabLabelReponse[0][3]));?>>
+                    </div>
+                </p>
+                <label id="question" for="q2">Question 2 : <?php echo($tabQuestion[1]);?></label> 
+                <p>
+                    <div id="reponsePossible">
+                        <label for="q2"><?php echo($tabLabelReponse[1][0]);?></label>
+                        <input type="checkbox" name="q2[]" value=<?php echo(urlencode($tabLabelReponse[1][0]));?>>
+                        <label for="q2"><?php echo($tabLabelReponse[1][1]);?></label>
+                        <input type="checkbox" name="q2[]" value=<?php echo(urlencode($tabLabelReponse[1][1]));?>>
+                        <label for="q2"><?php echo($tabLabelReponse[1][2]);?></label>
+                        <input type="checkbox" name="q2[]" value=<?php echo(urlencode($tabLabelReponse[1][2]));?>>
+                        <label for="q2"><?php echo($tabLabelReponse[1][3]);?></label>
+                        <input type="checkbox" name="q2[]" value=<?php echo(urlencode($tabLabelReponse[1][3]));?>>
+                    </div>
+                </p>
+                <label id="question" for="q3">Question 3 : <?php echo($tabQuestion[2]);?></label> 
+                <p>
+                    <div id="reponsePossible">
+                        <select name="q3">
+                            <option value="">--Please choose an option--</option>
+                            <option value=<?php echo(urlencode($tabLabelReponse[2][0]));?>><?php echo($tabLabelReponse[2][0]);?></option>
+                            <option value=<?php echo(urlencode($tabLabelReponse[2][1]));?>><?php echo($tabLabelReponse[2][1]);?></option>
+                            <option value=<?php echo(urlencode($tabLabelReponse[2][2]));?>><?php echo($tabLabelReponse[2][2]);?></option>
+                            <option value=<?php echo(urlencode($tabLabelReponse[2][3]));?>><?php echo($tabLabelReponse[2][3]);?></option>
+                            <option value=<?php echo(urlencode($tabLabelReponse[2][4]));?>><?php echo($tabLabelReponse[2][4]);?></option>
+                            <option value=<?php echo(urlencode($tabLabelReponse[2][5]));?>><?php echo($tabLabelReponse[2][5]);?></option>
+                            <option value=<?php echo(urlencode($tabLabelReponse[2][6]));?>><?php echo($tabLabelReponse[2][6]);?></option>
+                            <option value=<?php echo(urlencode($tabLabelReponse[2][7]));?>><?php echo($tabLabelReponse[2][7]);?></option>
+                        </select>
+                    </div>
+                </p>
+                <label id="question" for="q4">Question 4 : <?php echo($tabQuestion[3]);?></label> 
+                <p>
+                    <div id="reponsePossible">
+                       <input type="number" id="q4" name="q4" placeholder="2000" min="1800" max="2020"> 
+                    </div>
+                </p>
                 <div id="reponsePossible">
-                    <label for>Dans une cuisine</label>
-                    <input type="radio" name="q1" value="rep1q1">
-                    <label for>Dans une voiture</label>
-                    <input type="radio" name="q1" value="rep2q1">
-                    <label for>Aux toilettes</label>
-                    <input type="radio" name="q1" value="rep3q1">
-                    <label for>Dans un bar</label>
-                    <input type="radio" name="q1" value="rep4q1">
+                    <input type="submit" value="Repondre">
                 </div>
-            </p>
-            <label id="question" for="q2">Question 2 : Parmi ces personnages, quels sont ceux qui meurent dans le film "Django unchained" ?</label>
-            <p>
-                <div id="reponsePossible">
-                    <label for>Django</label>
-                    <input type="checkbox" name="q2a">
-                    <label>Dr King Schultz</label>
-                    <input type="checkbox" name="q2b">
-                    <label>Calvin Candie</label>
-                    <input type="checkbox" name="q2c">
-                    <label>Broomhilda von Shaft</label>
-                    <input type="checkbox" name="q2d">
-                </div>
-            </p>
-            <label id="question" for="q3">Question 3 : Quel est le 1er film réalisé par Quentin Tarantino ?</label>
-            <p>
-                <div id="reponsePossible">
-                    <select name="q3">
-                    <option value="">--Choisissez une option--</option>
-                    <option value="rep1q3">Pulp fiction</option>
-                    <option value="rep2q3">Django unchained</option>
-                    <option value="rep3q3">Jacky Brown</option>
-                    <option value="rep4q3">Reservoir dogs</option>
-                    <option value="rep5q3">Boulevard de la mort</option>
-                    <option value="rep6q3">Kill Bill Volume 1</option>
-                    <option value="rep7q3">Inglorious basterds</option>
-                    <option value="rep8q3">Les 8 salopards</option>
-                    </select>
-                </div>
-            </p>
-            <label id="question" for="q4">Question 4 : Combien de films Quentin Tarantino a-t-il rélisé ?</label>            
-            <p>
-                <div id="reponsePossible">
-                <label for="q4">Choisissez un nombre :</label>
-                <input type="number" name="q4" placeholder="0" min="0" max="100">
-                </div>
-            </p>
-            <p>
-            <div id="reponsePossible">
-                <input type="submit" value="Repondre">
-            </div>
             </p>
         </form>
         <?php include("footer.php");?>
