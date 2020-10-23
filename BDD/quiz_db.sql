@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 21 oct. 2020 à 17:42
--- Version du serveur :  8.0.21
+-- Généré le : ven. 23 oct. 2020 à 12:02
+-- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `answer`;
 CREATE TABLE IF NOT EXISTS `answer` (
-  `answer_id` int NOT NULL AUTO_INCREMENT COMMENT 'answer identifier',
+  `answer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'answer identifier',
   `answer_text` varchar(255) NOT NULL COMMENT 'text of the answer',
   `is_valid_answer` tinyint(1) NOT NULL COMMENT 'valid answer for question',
-  `answer_question_id` int NOT NULL COMMENT 'question related',
+  `answer_question_id` int(11) NOT NULL COMMENT 'question related',
   PRIMARY KEY (`answer_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
@@ -78,9 +78,9 @@ INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_que
 
 DROP TABLE IF EXISTS `question`;
 CREATE TABLE IF NOT EXISTS `question` (
-  `question_id` int NOT NULL AUTO_INCREMENT COMMENT 'question_identification',
+  `question_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'question_identification',
   `question_title` varchar(255) NOT NULL COMMENT 'title of the question',
-  `question_quizz_id` int NOT NULL COMMENT 'link question quizz',
+  `question_quizz_id` int(11) NOT NULL COMMENT 'link question quizz',
   `question_input_type` varchar(255) NOT NULL COMMENT 'input of the question',
   PRIMARY KEY (`question_id`),
   KEY `question_quizz_id_fk` (`question_quizz_id`)
@@ -91,10 +91,10 @@ CREATE TABLE IF NOT EXISTS `question` (
 --
 
 INSERT INTO `question` (`question_id`, `question_title`, `question_quizz_id`, `question_input_type`) VALUES
-(1, 'Combien de film ?', 1, 'radio'),
-(2, 'quel perso', 1, 'checkbox'),
-(3, 'adversaire Yoda', 1, 'selecteur'),
-(4, 'quel annee', 1, 'text'),
+(1, 'Combien de Star Wars à réalisé Georges Lucas ? ', 1, 'radio'),
+(2, 'Lesquels de ces personnages ne sont pas des Jedi', 1, 'checkbox'),
+(3, 'Dans La Revanche des Siths quel adversaire affronte Maitre Yoda', 1, 'selecteur'),
+(4, 'Quel est l\'année de sorti du premier Star Wars', 1, 'text'),
 (5, 'Dans le film \"Pulp fiction\", où meurt le personnage incarné par John Travolta ?', 2, 'radio'),
 (6, 'Parmi ces personnages, quels sont ceux qui meurent dans le film \"Django unchained\" ?', 2, 'checkbox'),
 (7, 'Quel est le 1er film réalisé par Quentin Tarantino ?', 2, 'select'),
@@ -108,7 +108,7 @@ INSERT INTO `question` (`question_id`, `question_title`, `question_quizz_id`, `q
 
 DROP TABLE IF EXISTS `quizz`;
 CREATE TABLE IF NOT EXISTS `quizz` (
-  `quizz_id` int NOT NULL AUTO_INCREMENT COMMENT 'Quizz Identifiant',
+  `quizz_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Quizz Identifiant',
   `quizz_name` varchar(255) NOT NULL COMMENT 'Quizz name',
   PRIMARY KEY (`quizz_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
@@ -129,7 +129,7 @@ INSERT INTO `quizz` (`quizz_id`, `quizz_name`) VALUES
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `user_id` int NOT NULL AUTO_INCREMENT COMMENT 'user identifiant',
+  `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user identifiant',
   `user_last_name` varchar(255) NOT NULL COMMENT 'user last name',
   `user_first_name` varchar(255) NOT NULL COMMENT 'user first name',
   `user_adress` longtext COMMENT 'user physical adress',
@@ -147,9 +147,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 DROP TABLE IF EXISTS `user_answer`;
 CREATE TABLE IF NOT EXISTS `user_answer` (
-  `user_answer_id` int NOT NULL AUTO_INCREMENT COMMENT 'User answer identifiant',
-  `user_id` int NOT NULL COMMENT 'user identifiant',
-  `answer_id` int NOT NULL COMMENT 'answer_id',
+  `user_answer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'User answer identifiant',
+  `user_id` int(11) NOT NULL COMMENT 'user identifiant',
+  `answer_id` int(11) NOT NULL COMMENT 'answer_id',
   `user_answer_date` timestamp NULL DEFAULT NULL COMMENT 'date of answer user',
   PRIMARY KEY (`user_answer_id`),
   KEY `user_id_fk` (`user_id`),
@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `user_answer` (
 -- Contraintes pour la table `question`
 --
 ALTER TABLE `question`
-  ADD CONSTRAINT `question_quizz_id_fk` FOREIGN KEY (`question_quizz_id`) REFERENCES `quizz` (`quizz_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `question_quizz_id_fk` FOREIGN KEY (`question_quizz_id`) REFERENCES `quizz` (`quizz_id`);
 
 --
 -- Contraintes pour la table `user_answer`
