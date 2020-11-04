@@ -1,7 +1,7 @@
 <html>
 <head>
-  <link href="css/HomePage.css" rel="stylesheet" type="text/css">
-  <link href="css/body.css" rel="stylesheet"/>
+  <link href="../css/HomePage.css" rel="stylesheet" type="text/css">
+  <link href="../css/body.css" rel="stylesheet"/>
  </head>
 
 <?php
@@ -14,9 +14,9 @@ if(!isset($_GET['page'])){
     }
 }
 
-include('ouverture.php');
+include('../vues/ouverture.php');
 
-include('header.php');
+include('../vues/header.php');
 
 if ($_GET['page'] == 'homepage'){
     include('../vues/homepage.php');
@@ -32,4 +32,4 @@ else{
     die;
 }
 
-include('footer.php');
+include('../vues/footer.php');

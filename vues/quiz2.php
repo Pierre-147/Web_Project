@@ -7,8 +7,8 @@
     <head>
         <meta charset="iso-8859-1"/>
         <title>Quiz 2 : <?php echo($title);?></title>
-        <link href="css/quiz1.css" rel="stylesheet"/>
-        <link href="css/body.css" rel="stylesheet"/>
+        <link href="../vues/css/quiz1.css" rel="stylesheet"/>
+        <link href="../vues/css/body.css" rel="stylesheet"/>
     </head>
     <body> 
     <?php include("header.php");?>
