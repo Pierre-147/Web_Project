@@ -1,12 +1,22 @@
-<?php 
-for($i =0; $i<count($tabQuestion); $i++)
-{
+<head>
+    <meta charset="iso-8859-1"/>
+    <title>Reponses : <?php echo($title);?></title>
+    <link href="../css/quiz1.css" rel="stylesheet"/>
+    <link href="../css/body.css" rel="stylesheet"/>
+</head>
+
+<div id="content-wrap">
+    <h3>Quiz <?php echo($varquiz." : ".$title);?></h3>
+    <br/>
+    <?php 
+    for($i =0; $i<count($tabQuestion); $i++)
+    {
     ?>
     <label id="question" for=<?php echo("q".($i+1))?>><?php echo("Question ".($i+1)." ".$tabQuestion[$i]);?></label>
     <div id="reponsePossible">
         <p>
             <?php
-            $type = $i+1;      //type de reponse 
+            $type = $tabTypeQuestion[$i];      //type de reponse 
             if ($type == 1)
             {
                 verifRadio($i, $tabReponse, $tabLabelReponse);
@@ -27,11 +37,9 @@ for($i =0; $i<count($tabQuestion); $i++)
         </p>
     </div>
     <?php
-}
-?>
-
-
-
+    }
+    ?>
+</div>
 
 
 <?php 
@@ -50,9 +58,9 @@ function verifRadio($nbQ, $tabReponse, $tabLabelReponse)
     $bonneReponse = $tabLabelReponse[$nbQ][$indexRecherche];
 
     //on verifie si la bonne reponse de la base de donnee correspond à la reponse submit
-    if (isset($_GET['q'.($nbQ+1)]))
+    if (isset($_POST['q'.($nbQ+1)]))
     {
-        $varRep = urldecode($_GET['q'.($nbQ+1)]);      //entree de l'utilisateur
+        $varRep = urldecode($_POST['q'.($nbQ+1)]);      //entree de l'utilisateur
         if($varRep == $bonneReponse)
         {
             echo("Bonne réponse");
@@ -70,7 +78,7 @@ function verifRadio($nbQ, $tabReponse, $tabLabelReponse)
 
 //nbQ : index de la question (0 :(question 1))
 function verifCheck($nbQ, $tabReponse, $tabLabelReponse)
-{     
+{    
     //questionnaire a choix multiples => on recherche le nombre de bonne réponse
     $totalBonneReponse=0;
     for($i=0;$i<count($tabReponse[$nbQ]); $i++)
@@ -79,19 +87,19 @@ function verifCheck($nbQ, $tabReponse, $tabLabelReponse)
             $totalBonneReponse++;
     }
 
-    if(isset($_GET['q'.($nbQ+1)])!=0)
+    if(isset($_POST['q'.($nbQ+1)])!=0)
     {
         $test = true;      //on initialise un boolean, on suppose que la reponse est vrai sauf si on ne repond rien
 
         $bonneReponseInput=0;
         //on parcourt les reponses envoyées
-        for ($i = 0; $i< count($_GET['q'.($nbQ+1)]); $i++)
+        for ($i = 0; $i< count($_POST['q'.($nbQ+1)]); $i++)
         {
-            $varRep=urldecode($_GET['q'.($nbQ+1)][$i]);     //entre utilisateur
+            $varRep=urldecode($_POST['q'.($nbQ+1)][$i]);     //entre utilisateur
 
             $indexRecherche=0;
             //on verifie que c'est une bonne reponse
-            for($j=0; $j<count($tabLabelReponse); $j++)
+            for($j=0; $j<count($tabLabelReponse[$nbQ]); $j++)
             {
                 if ($varRep == $tabLabelReponse[$nbQ][$j])
                     $indexRecherche=$j;
@@ -111,7 +119,7 @@ function verifCheck($nbQ, $tabReponse, $tabLabelReponse)
     {
         //on recherche les bons réponses
         $reponseCorrect = new ArrayObject(array());
-        for($i=0; $i<count($tabLabelReponse);$i++)
+        for($i=0; $i<count($tabLabelReponse[$nbQ]);$i++)
         {
             if($tabReponse[$nbQ][$i]=="1")
                 $reponseCorrect->append($tabLabelReponse[$nbQ][$i]);  
@@ -142,9 +150,9 @@ function verifSelect($nbQ, $tabReponse, $tabLabelReponse)
     $bonneReponse = $tabLabelReponse[$nbQ][$indexRecherche];
 
     //on verifie si la bonne reponse de la base de donnee correspond à la reponse submit
-    if (isset($_GET['q'.($nbQ+1)]))
+    if (isset($_POST['q'.($nbQ+1)]))
     {
-        $varRep = urldecode($_GET['q'.($nbQ+1)]);      //entree de l'utilisateur
+        $varRep = urldecode($_POST['q'.($nbQ+1)]);      //entree de l'utilisateur
         if($varRep == $bonneReponse)
         {
             echo("Bonne réponse");
@@ -175,9 +183,9 @@ function verifInput($nbQ, $tabReponse, $tabLabelReponse)
     $bonneReponse = $tabLabelReponse[$nbQ][$indexRecherche];
 
     //on verifie si la bonne reponse de la base de donnee correspond à la reponse submit
-    if (isset($_GET['q'.($nbQ+1)]))
+    if (isset($_POST['q'.($nbQ+1)]))
     {
-        $varRep = $_GET['q'.($nbQ+1)];      //entree de l'utilisateur
+        $varRep = $_POST['q'.($nbQ+1)];      //entree de l'utilisateur
         if($varRep == $bonneReponse)
         {
             echo("Bonne réponse");

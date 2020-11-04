@@ -5,3 +5,11 @@
     font-size:30px;
     color:white;
 }
+
+p{
+    margin:0px;
+}
+
+#page-container{
+    background-image: url("../image/imageserie.jpg");
+}

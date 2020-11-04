@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 04, 2020 at 05:26 PM
+-- Generation Time: Nov 04, 2020 at 11:07 PM
 -- Server version: 8.0.22-0ubuntu0.20.04.2
 -- PHP Version: 7.4.3
 
@@ -67,7 +67,17 @@ INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_que
 (25, 'Kill Bill Volume 1', 0, 7),
 (26, 'Inglorious basterds', 0, 7),
 (27, 'Les 8 salopards', 0, 7),
-(30, '10', 1, 8);
+(30, '10', 1, 8),
+(31, '1', 1, 9),
+(32, 'I', 1, 10),
+(33, 'II', 1, 10),
+(34, 'III', 1, 10),
+(35, 'IV', 0, 10),
+(36, 'V', 1, 10),
+(37, 'VI', 1, 10),
+(38, 'VII', 0, 10),
+(39, 'VIII', 1, 10),
+(40, 'IX', 0, 10);
 
 -- --------------------------------------------------------
 
@@ -88,13 +98,15 @@ CREATE TABLE `question` (
 
 INSERT INTO `question` (`question_id`, `question_title`, `question_quizz_id`, `question_input_type`) VALUES
 (1, 'Combien de Star Wars a realise Georges Lucas ? ', 1, '1'),
-(2, 'Lesquels de ces personnages ne sont pas des Jedi', 1, '2'),
-(3, 'Dans La Revanche des Siths quel adversaire affronte Maitre Yoda', 1, '3'),
-(4, 'Quel est l\'annee de sorti du premier Star Wars', 1, '4'),
+(2, 'Lesquels de ces personnages ne sont pas des Jedi ?', 1, '2'),
+(3, 'Dans La Revanche des Siths quel adversaire affronte Maitre Yoda ?', 1, '3'),
+(4, 'Quel est l\'annee de sorti du premier Star Wars ?', 1, '4'),
 (5, 'Dans le film \"Pulp fiction\", ou meurt le personnage incarne par John Travolta ?', 2, '1'),
 (6, 'Parmi ces personnages, quels sont ceux qui meurent dans le film \"Django unchained\" ?', 2, '2'),
 (7, 'Quel est le 1er film realise par Quentin Tarantino ?', 2, '3'),
-(8, 'Combien de films Quentin Tarantino a-t-il realise ?', 2, '4');
+(8, 'Combien de films Quentin Tarantino a-t-il realise ?', 2, '4'),
+(9, 'Combien de Padawan a le droit de former un Jedi ?', 1, '4'),
+(10, 'Dans quels films Yoda apparait-il?', 1, '2');
 
 -- --------------------------------------------------------
 
@@ -189,13 +201,13 @@ ALTER TABLE `user_answer`
 -- AUTO_INCREMENT for table `answer`
 --
 ALTER TABLE `answer`
-  MODIFY `answer_id` int NOT NULL AUTO_INCREMENT COMMENT 'answer identifier', AUTO_INCREMENT=31;
+  MODIFY `answer_id` int NOT NULL AUTO_INCREMENT COMMENT 'answer identifier', AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `question_id` int NOT NULL AUTO_INCREMENT COMMENT 'question_identification', AUTO_INCREMENT=9;
+  MODIFY `question_id` int NOT NULL AUTO_INCREMENT COMMENT 'question_identification', AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `quizz`

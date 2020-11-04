@@ -14,7 +14,12 @@
     $tabQuestion = array();
     while ($donnee = $res->fetch()){
         array_push($tabQuestion, $donnee[0]);
-    }>query($req);
+    }
+
+
+    // create an array with the different answers for each questions
+    $req = "SELECT question_id FROM question WHERE question_quizz_id = $varquiz";
+    $res=$database->query($req);
     $tabLabelReponse = array();
     while ($donnee = $res->fetch()){
         $rep_list = array();
@@ -44,8 +49,8 @@
     // create an array with the type of the different questions 
     $req = "SELECT question_input_type FROM question WHERE question_quizz_id = $varquiz";
     $res=$database->query($req);
-    $tabQuestion = array();
+    $tabTypeQuestion = array();
     while ($donnee = $res->fetch()){
-        array_push($tabQuestion, $donnee[0]);
+        array_push($tabTypeQuestion, $donnee[0]);
     }
 ?>

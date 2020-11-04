@@ -1,13 +1,25 @@
 body{
-    margin: 0;
+    margin:0px;
 }
 
-footer{
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+  
+#content-wrap {
+    padding-bottom: 3rem;    /* Footer height */
+}
+
+#footer{
     background-color: darkgoldenrod ;
     text-align: center;
-    position: fixed;
+    font-size: 1.2em;
+
+    position: absolute;
     bottom: 0;
     width: 100%;
+    height: 2rem;            /* Footer height */
 }
 
 header{
@@ -26,18 +38,21 @@ header{
     flex-direction: column;
 }
 
-
-
 #links{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
+#footer p{
+    margin: 0px;
+}
+
 a{
     text-decoration: none;
     color: black;
 }
+
 a:hover{
     color: darkgreen;
 }
