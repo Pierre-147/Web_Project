@@ -1,158 +1,195 @@
-<label id="question">Question 1: <?php echo($tabQuestion[0]);?></label>
-        <div id="reponse">
+<?php 
+for($i =0; $i<count($tabQuestion); $i++)
+{
+    ?>
+    <label id="question" for=<?php echo("q".($i+1))?>><?php echo("Question ".($i+1)." ".$tabQuestion[$i]);?></label>
+    <div id="reponsePossible">
+        <p>
             <?php
-            //on recherche la bonne reponse
+            $type = $i+1;      //type de reponse 
+            if ($type == 1)
+            {
+                verifRadio($i, $tabReponse, $tabLabelReponse);
+            }
+            else if ($type == 2)
+            {
+                verifCheck($i, $tabReponse, $tabLabelReponse);
+            }
+            else if ($type == 3)
+            {
+                verifSelect($i, $tabReponse, $tabLabelReponse);
+            }
+            else if($type == 4)
+            {
+                verifInput($i, $tabReponse, $tabLabelReponse);
+            }     
+            ?>
+        </p>
+    </div>
+    <?php
+}
+?>
+
+
+
+
+
+<?php 
+//nbQ : index de la question (0 :(question 1))
+function verifRadio($nbQ, $tabReponse, $tabLabelReponse)
+{
+    //on recherche la bonne reponse
+    $indexRecherche=0;
+    for($i=0; $i<count($tabReponse[$nbQ]);$i++)
+    {
+        if ($tabReponse[$nbQ][$i]=="1")
+        {
+            $indexRecherche=$i;
+        }
+    }
+    $bonneReponse = $tabLabelReponse[$nbQ][$indexRecherche];
+
+    //on verifie si la bonne reponse de la base de donnee correspond à la reponse submit
+    if (isset($_GET['q'.($nbQ+1)]))
+    {
+        $varRep = urldecode($_GET['q'.($nbQ+1)]);      //entree de l'utilisateur
+        if($varRep == $bonneReponse)
+        {
+            echo("Bonne réponse");
+        }
+        else
+        {
+            echo("Faux la réponse était : ".$bonneReponse);
+        } 
+    }
+    else
+    {
+        echo("Faux la réponse etait : ".$bonneReponse);
+    }         
+}
+
+//nbQ : index de la question (0 :(question 1))
+function verifCheck($nbQ, $tabReponse, $tabLabelReponse)
+{     
+    //questionnaire a choix multiples => on recherche le nombre de bonne réponse
+    $totalBonneReponse=0;
+    for($i=0;$i<count($tabReponse[$nbQ]); $i++)
+    {
+        if ($tabReponse[$nbQ][$i]=="1")
+            $totalBonneReponse++;
+    }
+
+    if(isset($_GET['q'.($nbQ+1)])!=0)
+    {
+        $test = true;      //on initialise un boolean, on suppose que la reponse est vrai sauf si on ne repond rien
+
+        $bonneReponseInput=0;
+        //on parcourt les reponses envoyées
+        for ($i = 0; $i< count($_GET['q'.($nbQ+1)]); $i++)
+        {
+            $varRep=urldecode($_GET['q'.($nbQ+1)][$i]);     //entre utilisateur
+
             $indexRecherche=0;
-            for($i=0; $i<count($tabReponse[0]);$i++)
+            //on verifie que c'est une bonne reponse
+            for($j=0; $j<count($tabLabelReponse); $j++)
             {
-                if ($tabReponse[0][$i]=="1")
-                {
-                    $indexRecherche=$i;
-                }
+                if ($varRep == $tabLabelReponse[$nbQ][$j])
+                    $indexRecherche=$j;
             }
-            $bonneReponse = $tabLabelReponse[0][$indexRecherche];
-
-            //on verifie si la bonne reponse de la base de donnee correspond à la reponse submit
-            if (isset($_GET['q1']))
-            {
-                $varRep = urldecode($_GET['q1']);      //entree de l'utilisateur
-                if($varRep == $bonneReponse)
-                {
-                    echo("Bonne réponse");
-                }
-                else
-                {
-                    echo("Faux la réponse était : ".$bonneReponse);
-                } 
-            }
+            if($tabReponse[$nbQ][$indexRecherche] != "1")      //si une mauvaise reponse est detecte => c'est faux
+                $test = false; 
             else
-            {
-                echo("Faux la réponse etait : ".$bonneReponse);
-            }         
-            ?>
-        </div>
-        <label id="question">Question 2: <?php echo($tabQuestion[1]);?></label>
-        <div id="reponse">
-            <?php
-            //questionnaire a choix multiples => on recherche le nombre de bonne réponse
-            $totalBonneReponse=0;
-            for($i=0;$i<count($tabReponse[1]); $i++)
-            {
-                if ($tabReponse[1][$i]=="1")
-                    $totalBonneReponse++;
-            }
+                $bonneReponseInput++;       //c'est une bonne reponse =>increment du nombre de bonne reponse
+        }
+    }
+    else
+        $test= false;
 
-            if(isset($_GET['q2'])!=0)
-            {
-                $test = true;      //on initialise un boolean, on suppose que la reponse est vrai sauf si on ne repond rien
+    if ($test == true && $totalBonneReponse==$bonneReponseInput)        //si il n'y pas eu de mauvaises reponses et qu'on a repondu le bon nombre de bonnes reponses
+        echo("Bonne réponse");
+    else 
+    {
+        //on recherche les bons réponses
+        $reponseCorrect = new ArrayObject(array());
+        for($i=0; $i<count($tabLabelReponse);$i++)
+        {
+            if($tabReponse[$nbQ][$i]=="1")
+                $reponseCorrect->append($tabLabelReponse[$nbQ][$i]);  
+        }
+        //affichage
+        echo("Faux les réponses étaient : ");
+        for($i=0; $i<count($reponseCorrect); $i++)
+        {
+            echo($reponseCorrect[$i]);
+            if ($i != count($reponseCorrect)-1)
+                echo(", ");
+        }
+    }
+}
 
-                $bonneReponseInput=0;
-                //on parcourt les reponses envoyées
-                for ($i = 0; $i< count($_GET['q2']); $i++)
-                {
-                    $varRep=urldecode($_GET['q2'][$i]);     //entre utilisateur
+//nbQ : index de la question (0 :(question 1))
+function verifSelect($nbQ, $tabReponse, $tabLabelReponse)
+{
+    //on recherche la bonne reponse
+    $indexRecherche=0;
+    for($i=0; $i<count($tabReponse[$nbQ]);$i++)
+    {
+        if ($tabReponse[$nbQ][$i]=="1")
+        {
+            $indexRecherche=$i;
+        }
+    }
+    $bonneReponse = $tabLabelReponse[$nbQ][$indexRecherche];
 
-                    $indexRecherche=0;
-                    //on verifie que c'est une bonne reponse
-                    for($j=0; $j<count($tabLabelReponse); $j++)
-                    {
-                        if ($varRep == $tabLabelReponse[1][$j])
-                            $indexRecherche=$j;
-                    }
-                    if($tabReponse[1][$indexRecherche] != "1")      //si une mauvaise reponse est detecte => c'est faux
-                        $test = false; 
-                    else
-                        $bonneReponseInput++;       //c'est une bonne reponse =>increment du nombre de bonne reponse
-                }
-            }
-            else
-                $test= false;
+    //on verifie si la bonne reponse de la base de donnee correspond à la reponse submit
+    if (isset($_GET['q'.($nbQ+1)]))
+    {
+        $varRep = urldecode($_GET['q'.($nbQ+1)]);      //entree de l'utilisateur
+        if($varRep == $bonneReponse)
+        {
+            echo("Bonne réponse");
+        }
+        else
+        {
+            echo("Faux la réponse était : ".$bonneReponse);
+        } 
+    }
+    else
+    {
+        echo("Faux la réponse etait : ".$bonneReponse);
+    }              
+}
 
-            if ($test == true && $totalBonneReponse==$bonneReponseInput)        //si il n'y pas eu de mauvaises reponses et qu'on a repondu le bon nombre de bonnes reponses
-                echo("Bonne réponse");
-            else 
-            {
-                //on recherche les bons réponses
-                $reponseCorrect = new ArrayObject(array());
-                for($i=0; $i<count($tabLabelReponse);$i++)
-                {
-                    if($tabReponse[1][$i]=="1")
-                        $reponseCorrect->append($tabLabelReponse[1][$i]);  
-                }
-                //affichage
-                echo("Faux les réponses étaient : ");
-                for($i=0; $i<count($reponseCorrect); $i++)
-                {
-                    echo($reponseCorrect[$i]);
-                    if ($i != count($reponseCorrect)-1)
-                        echo(", ");
-                }
-            }
-            ?>
-        </div>
-        <label id="question">Question 3: <?php echo($tabQuestion[2]);?></label>
-        <div id="reponse">
-            <?php
-            //on recherche la bonne reponse
-            $indexRecherche=0;
-            for($i=0; $i<count($tabReponse[2]);$i++)
-            {
-                if ($tabReponse[2][$i]=="1")
-                {
-                    $indexRecherche=$i;
-                }
-            }
-            $bonneReponse = $tabLabelReponse[2][$indexRecherche];
+//nbQ : index de la question (0 :(question 1))
+function verifInput($nbQ, $tabReponse, $tabLabelReponse)
+{     
+    //on recherche la bonne reponse
+    $indexRecherche=0;
+    for($i=0; $i<count($tabReponse[$nbQ]);$i++)
+    {
+        if ($tabReponse[$nbQ][$i]=="1")
+        {
+            $indexRecherche=$i;
+        }
+    }
+    $bonneReponse = $tabLabelReponse[$nbQ][$indexRecherche];
 
-            //on verifie si la bonne reponse de la base de donnee correspond à la reponse submit
-            if (isset($_GET['q3']))
-            {
-                $varRep = urldecode($_GET['q3']);      //entree de l'utilisateur
-                if($varRep == $bonneReponse)
-                {
-                    echo("Bonne réponse");
-                }
-                else
-                {
-                    echo("Faux la réponse était : ".$bonneReponse);
-                } 
-            }
-            else
-            {
-                echo("Faux la réponse etait : ".$bonneReponse);
-            }         
-            ?>
-        </div>
-        <label id="question">Question 4: <?php echo($tabQuestion[3]);?></label>
-        <div id="reponse">
-            <?php
-            //on recherche la bonne reponse
-            $indexRecherche=0;
-            for($i=0; $i<count($tabReponse[3]);$i++)
-            {
-                if ($tabReponse[3][$i]=="1")
-                {
-                    $indexRecherche=$i;
-                }
-            }
-            $bonneReponse = $tabLabelReponse[3][$indexRecherche];
-
-            //on verifie si la bonne reponse de la base de donnee correspond à la reponse submit
-            if (isset($_GET['q4']))
-            {
-                $varRep = $_GET['q4'];      //entree de l'utilisateur
-                if($varRep == $bonneReponse)
-                {
-                    echo("Bonne réponse");
-                }
-                else
-                {
-                    echo("Faux la réponse était : ".$bonneReponse);
-                } 
-            }
-            else
-            {
-                echo("Faux la réponse etait : ".$bonneReponse);
-            }         
-            ?>
-        </div>
+    //on verifie si la bonne reponse de la base de donnee correspond à la reponse submit
+    if (isset($_GET['q'.($nbQ+1)]))
+    {
+        $varRep = $_GET['q'.($nbQ+1)];      //entree de l'utilisateur
+        if($varRep == $bonneReponse)
+        {
+            echo("Bonne réponse");
+        }
+        else
+        {
+            echo("Faux la réponse était : ".$bonneReponse);
+        } 
+    }
+    else
+    {
+        echo("Faux la réponse etait : ".$bonneReponse);
+    } 
+}
+?>
