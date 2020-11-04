@@ -19,14 +19,14 @@ include('ouverture.php');
 include('header.php');
 
 if ($_GET['page'] == 'homepage'){
-    include('homepage.php');
+    include('../vues/homepage.php');
 }
 elseif($_GET['page'] == 'createAccount'){
-    include('CreateAccount.php');
+    include('../vues/CreateAccount.php');
 }
 elseif($_GET['page'] == 'quizz'){
-    include('quizz.php');
-    include('load_quizz.php');    
+    include('../vues/quizz.php');
+    include('../model/load_quizz.php');    
 }
 else{
     die;
