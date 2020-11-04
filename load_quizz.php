@@ -5,16 +5,16 @@
     $title = $res->fetch()[0];
 
     // put all of this qizz's question wording in an array
-    $req = "SELECT question_title FROM question WHERE question_quizz_id = $varquiz";
+    
+    
+    // create an array with the different answers for each questions
+    $req = "SELECT question_id FROM question WHERE question_quizz_id = $varquiz";
+    $res=$database-$req = "SELECT question_title FROM question WHERE question_quizz_id = $varquiz";
     $res=$database->query($req);
     $tabQuestion = array();
     while ($donnee = $res->fetch()){
         array_push($tabQuestion, $donnee[0]);
-    }
-    
-    // create an array with the different answers for each questions
-    $req = "SELECT question_id FROM question WHERE question_quizz_id = $varquiz";
-    $res=$database->query($req);
+    }>query($req);
     $tabLabelReponse = array();
     while ($donnee = $res->fetch()){
         $rep_list = array();
@@ -38,5 +38,14 @@
             array_push($validity_list, $donnee2[0]);
         }
         array_push($tabReponse, $validity_list);
+    }
+
+
+    // create an array with the type of the different questions 
+    $req = "SELECT question_input_type FROM question WHERE question_quizz_id = $varquiz";
+    $res=$database->query($req);
+    $tabQuestion = array();
+    while ($donnee = $res->fetch()){
+        array_push($tabQuestion, $donnee[0]);
     }
 ?>
