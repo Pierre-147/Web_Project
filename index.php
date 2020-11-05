@@ -10,37 +10,37 @@
         }
     }
     //ouverture bdd
-    include('../model/ouverture.php');
+    include('model/ouverture.php');
     ?>
 
     <body>
         <div id="page-container">
             <?php
-            include('../vues/header.php');
+            include('vues/header.php');
 
             //differentes vues
             if ($_GET['page'] == 'homepage'){
-                include('../vues/homePage.php');
+                include('vues/homePage.php');
             }
             elseif($_GET['page'] == 'createAccount'){
-                include('../vues/createAccount.php');
+                include('vues/createAccount.php');
             }
             elseif($_GET['page'] == 'quizz'){
                 $varquiz = $_GET['varquiz'];
-                include('../model/loadQuizz.php');  
-                include('../vues/quiz.php');  
+                include('model/loadQuizz.php');  
+                include('vues/quiz.php');  
             }
             elseif($_GET['page'] == 'result')
             {
                 $varquiz = $_GET['varquiz'];
-                include('../model/loadQuizz.php'); 
-                include('../vues/reponseQuiz.php');
+                include('model/loadQuizz.php'); 
+                include('vues/reponseQuiz.php');
             }
             else{
                 die;
             }
 
-            include('../vues/footer.php');
+            include('vues/footer.php');
             ?>
         </div>
     </body>

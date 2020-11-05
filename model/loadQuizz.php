@@ -5,17 +5,12 @@
     $title = $res->fetch()[0];
 
     // put all of this qizz's question wording in an array
-    
-    
-    // create an array with the different answers for each questions
-    $req = "SELECT question_id FROM question WHERE question_quizz_id = $varquiz";
-    $res=$database-$req = "SELECT question_title FROM question WHERE question_quizz_id = $varquiz";
+    $req = "SELECT question_title FROM question WHERE question_quizz_id = $varquiz";
     $res=$database->query($req);
     $tabQuestion = array();
     while ($donnee = $res->fetch()){
         array_push($tabQuestion, $donnee[0]);
     }
-
 
     // create an array with the different answers for each questions
     $req = "SELECT question_id FROM question WHERE question_quizz_id = $varquiz";

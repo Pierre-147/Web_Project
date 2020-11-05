@@ -1,9 +1,9 @@
 <head>
     <meta charset="iso-8859-1"/>
     <title>Account</title>
-    <link href='../css/createAccount.css' rel='stylesheet'>
-    <link href='../css/body.css' rel='stylesheet'>
-    <link href='../css/homePage.css' rel='stylesheet'>
+    <link href='css/createAccount.css' rel='stylesheet'>
+    <link href='css/body.css' rel='stylesheet'>
+    <link href='css/homePage.css' rel='stylesheet'>
 </head>
 
 <div id="content-wrap">

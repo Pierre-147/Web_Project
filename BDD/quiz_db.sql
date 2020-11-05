@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 04, 2020 at 11:07 PM
+-- Generation Time: Nov 05, 2020 at 07:15 PM
 -- Server version: 8.0.22-0ubuntu0.20.04.2
 -- PHP Version: 7.4.3
 
@@ -97,16 +97,16 @@ CREATE TABLE `question` (
 --
 
 INSERT INTO `question` (`question_id`, `question_title`, `question_quizz_id`, `question_input_type`) VALUES
-(1, 'Combien de Star Wars a realise Georges Lucas ? ', 1, '1'),
-(2, 'Lesquels de ces personnages ne sont pas des Jedi ?', 1, '2'),
-(3, 'Dans La Revanche des Siths quel adversaire affronte Maitre Yoda ?', 1, '3'),
-(4, 'Quel est l\'annee de sorti du premier Star Wars ?', 1, '4'),
-(5, 'Dans le film \"Pulp fiction\", ou meurt le personnage incarne par John Travolta ?', 2, '1'),
-(6, 'Parmi ces personnages, quels sont ceux qui meurent dans le film \"Django unchained\" ?', 2, '2'),
-(7, 'Quel est le 1er film realise par Quentin Tarantino ?', 2, '3'),
-(8, 'Combien de films Quentin Tarantino a-t-il realise ?', 2, '4'),
-(9, 'Combien de Padawan a le droit de former un Jedi ?', 1, '4'),
-(10, 'Dans quels films Yoda apparait-il?', 1, '2');
+(1, 'Combien de Star Wars a realise Georges Lucas ? ', 1, 'radio'),
+(2, 'Lesquels de ces personnages ne sont pas des Jedi ?', 1, 'checkbox'),
+(3, 'Dans La Revanche des Siths quel adversaire affronte Maitre Yoda ?', 1, 'select'),
+(4, 'Quel est l\'annee de sorti du premier Star Wars ?', 1, 'input'),
+(5, 'Dans le film \"Pulp fiction\", ou meurt le personnage incarne par John Travolta ?', 2, 'radio'),
+(6, 'Parmi ces personnages, quels sont ceux qui meurent dans le film \"Django unchained\" ?', 2, 'checkbox'),
+(7, 'Quel est le 1er film realise par Quentin Tarantino ?', 2, 'select'),
+(8, 'Combien de films Quentin Tarantino a-t-il realise ?', 2, 'input'),
+(9, 'Combien de Padawan a le droit de former un Jedi ?', 1, 'input'),
+(10, 'Dans quels films Yoda apparait-il?', 1, 'checkbox');
 
 -- --------------------------------------------------------
 

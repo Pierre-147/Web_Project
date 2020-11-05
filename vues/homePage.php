@@ -1,7 +1,7 @@
 <head>
     <title>HomePage</title>
-    <link href="../css/homePage.css" rel="stylesheet" type="text/css">
-    <link href="../css/body.css" rel="stylesheet"/>
+    <link href="css/homePage.css" rel="stylesheet" type="text/css">
+    <link href="css/body.css" rel="stylesheet"/>
 </head>
 
 <div id=content-wrap> 
