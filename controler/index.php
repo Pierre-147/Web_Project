@@ -5,6 +5,8 @@
  </head>
 
 <?php
+session_start();
+$id = $_SESSION[user_id];
 if(!isset($_GET['page'])){
     if (!isset($_GET['connected']) || $_GET['connected']==false){
         $_GET['page'] = 'homepage';

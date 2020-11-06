@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
     <head>           
-        <link href='css/CACss.css' rel='stylesheet'>
-        <link href='css/body.css' rel='stylesheet'>
-        <link href='css/HomePage.css' rel='stylesheet'>
+        <link href='../css/CACss.css' rel='stylesheet'>
+        <link href='../css/body.css' rel='stylesheet'>
+        <link href='../css/HomePage.css' rel='stylesheet'>
 
     </head>
     <body>
