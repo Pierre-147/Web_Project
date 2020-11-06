@@ -45,4 +45,26 @@
             </form>
         </div>
     </div>
+
+    <?php
+        $password="mot";
+        $lastName="Husson";
+        $firstName="Laetitia";
+
+        $response = $database->query("SELECT user_password FROM user WHERE user_last_name ='$lastName'  AND user_first_name='$firstName'");
+        $pass=$response->fetch();
+        
+        if($pass[0]==$password){
+            
+            echo('connecte');
+            
+        }
+        else{
+            echo('non connecte');
+
+        }
+        
+
+    ?>
 </div>
+
