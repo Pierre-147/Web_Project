@@ -11,7 +11,49 @@
     }
     //ouverture bdd
     include('model/ouverture.php');
+    $page = $_GET['page'];
     ?>
+
+    <head>
+        <meta charset="iso-8859-1"/>
+        <link href='css/body.css' rel='stylesheet'>    
+        <?php 
+        //differentes vues
+        if ($page== 'homepage')
+        {
+            ?>
+            <title>HomePage</title>
+            <link href="css/homePage.css" rel="stylesheet" type="text/css">
+            <?php
+        }
+        elseif($page == 'createAccount')
+        {
+            ?>
+            <title>Account</title>
+            <link href='css/createAccount.css' rel='stylesheet'>
+            <link href='css/homePage.css' rel='stylesheet'>
+            <?php
+        }
+        elseif($page== 'quizz')
+        {
+            $varquiz = $_GET['varquiz'];
+            include('model/loadQuizz.php');  
+            ?>
+            <title>Quiz <?php echo($varquiz." : ".$title);?></title>
+            <link href="css/quiz.css" rel="stylesheet"/>
+            <?php
+        }
+        elseif($page== 'result')
+        {
+            $varquiz = $_GET['varquiz'];
+            include('model/loadQuizz.php'); 
+            ?>
+            <title>Reponses : <?php echo($title);?></title>
+            <link href="css/quiz.css" rel="stylesheet"/>
+            <?php
+        }
+        ?>
+    </head>
 
     <body>
         <div id="page-container">
@@ -19,21 +61,20 @@
             include('vues/header.php');
 
             //differentes vues
-            if ($_GET['page'] == 'homepage'){
+            if ($page== 'homepage')
+            {
                 include('vues/homePage.php');
             }
-            elseif($_GET['page'] == 'createAccount'){
+            elseif($page == 'createAccount')
+            {
                 include('vues/createAccount.php');
             }
-            elseif($_GET['page'] == 'quizz'){
-                $varquiz = $_GET['varquiz'];
-                include('model/loadQuizz.php');  
+            elseif($page== 'quizz')
+            {
                 include('vues/quiz.php');  
             }
-            elseif($_GET['page'] == 'result')
+            elseif($page== 'result')
             {
-                $varquiz = $_GET['varquiz'];
-                include('model/loadQuizz.php'); 
                 include('vues/reponseQuiz.php');
             }
             else{

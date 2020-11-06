@@ -18,7 +18,7 @@ foreach($tabQuestion as $question)
                 case "select":
                     ?>
                     <select name=<?php echo("q".($i+1))?>>
-                    <option value="">--Please choose an option--</option>
+                    <option value="">--Choisir--</option>
                     <?php
                     foreach($tabLabelReponse[$i] as $label)
                     {
@@ -47,6 +47,6 @@ foreach($tabQuestion as $question)
 ?>
 <p>
     <div id="reponsePossible">
-        <input type="submit" value="Repondre">
+        <input type="submit" value="Reponses">
     </div>
 </p>
