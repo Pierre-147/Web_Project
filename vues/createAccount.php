@@ -13,14 +13,22 @@
             
             <form method="post" action="createAccount.php">
                 <br />
-                <label> Pseudo : </label>
-                <input type="text" placeholder="Pseudo"/><br /><br />
+                <label> Nom : </label>
+                <input type="text" placeholder="Nom"/><br /><br />
+                <label> Prénom : </label>
+                <input type="text" placeholder="Prénom"/><br /><br />
                 <label> E-Mail : </label>
                 <input type="mail" placeholder="e-mail"/><br /><br />
+                <label> Adresse postale : </label>
+                <input type="mail" placeholder="Adresse postale"/><br /><br />
+                <label> Numéro de téléphone : </label>
+                <input type="tel"/><br /><br />
+                <label> Date de naissance : </label>
+                <input type="date" placeholder="2000-01-O1"/><br /><br />
                 <label> Mot de passe :</label>
-                <input type="password" placeholder="mot de passe"/><br /><br />
-                <label> Confirmer votre mot de passe : </label>
-                <input type="password" placeholder="confirmer votre mot de passe"/><br /><br />
+                <input type="password" placeholder="Mot de passe"/><br /><br />
+                <label> Confirmez votre mot de passe : </label>
+                <input type="password" placeholder="Confirmez votre mot de passe"/><br /><br />
         
                 <input type="submit" class= bouton value="Valider" />
                 <br />
@@ -33,11 +41,11 @@
 
             <form method="post" action="createAccount.php">
                 <br />
-                <label> Pseudo : </label>
-                <input type="text" placeholder="Pseudo"/><br /><br />
+                <label> E-Mail : </label>
+                <input type="mail" placeholder="e-mail"/><br /><br />
                 
                 <label> Mot de passe :</label>
-                <input type="password" placeholder="mot de passe"/><br /><br />           
+                <input type="password" placeholder="Mot de passe"/><br /><br />           
                 
                 <input type="submit" class= bouton value="Valider" />
                 <br />
