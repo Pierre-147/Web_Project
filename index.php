@@ -43,6 +43,11 @@
                 include('model/loadQuizz.php'); 
                 include('vues/reponseQuiz.php');
             }
+            elseif($_GET['page'] == 'trait')
+            {
+                include('controler/trait.php');
+                
+            }
             else{
                 die;
             }
