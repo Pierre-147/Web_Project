@@ -19,7 +19,7 @@
     //ouverture bdd
     include('model/ouverture.php');
     $page = $_GET['page'];
-    if ($page=="creatAccount"){
+    if ($page=="createAccount"){
         if($id!="visiteur"){
             $page="account";
         }
