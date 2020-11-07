@@ -10,5 +10,8 @@
             </nav>
         </div>
         <a href = 'index.php?page=createAccount'>Votre compte</a>
+        <p id= 'welcome'>
+            <?php echo("Bienvenue ".$id) ; ?>
+        </p>
     </div>
 </header>
