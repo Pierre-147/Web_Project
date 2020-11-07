@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
     <?php
+    session_start();
+    if(!isset($_SESSION["username"])){
+        $id= "visiteur";
+    }
+    else{
+        $id= $_SESSION["username"];
+    }
     if(!isset($_GET['page'])){
         if (!isset($_GET['connected']) || $_GET['connected']==false){
             $_GET['page'] = 'homepage';
@@ -76,6 +83,11 @@
             elseif($page== 'result')
             {
                 include('vues/reponseQuiz.php');
+            }
+            elseif($_GET['page'] == 'trait')
+            {
+                include('controler/trait.php');
+                
             }
             else{
                 die;
