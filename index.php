@@ -59,6 +59,11 @@
             <link href="css/quiz.css" rel="stylesheet"/>
             <?php
         }
+        elseif($page=='account'){
+            ?>
+            <title> Votre Compte : <?php echo($_SESSION["username"]); ?> </title>
+            <?php
+        }
         ?>
     </head>
 
@@ -83,6 +88,9 @@
             elseif($page== 'result')
             {
                 include('vues/reponseQuiz.php');
+            }
+            elseif($page=='account'){
+                include('vues/account.php');
             }
             elseif($_GET['page'] == 'trait')
             {

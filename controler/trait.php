@@ -12,7 +12,7 @@
             
         }
        
-        header("Location:index.php?page=homepage")
+        header("Location:index.php?page=account")
         
         
 
