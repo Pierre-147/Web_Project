@@ -61,3 +61,6 @@ a:hover{
     font-size: 1.5cm;
     text-align: center;
 }
+p #welcome{
+    margin:0 px;
+}
