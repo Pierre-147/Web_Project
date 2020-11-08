@@ -31,7 +31,7 @@
         <div class='Connection'>
             <h1> Connecter vous !</h1>
 
-            <form method="POST" action=<?php echo("index.php?page=trait")?>>
+            <form method="POST" action=<?php echo("index.php?page=verifConnexion")?>>
                 <br />
                 <label for="email"> E-Mail :  </label>
                 <input type="mail" placeholder="e-mail" name="email"/><br /><br />

@@ -8,6 +8,7 @@
     else{
         $id= $_SESSION["username"];
     }
+
     if(!isset($_GET['page'])){
         if (!isset($_GET['connected']) || $_GET['connected']==false){
             $_GET['page'] = 'homepage';
@@ -18,6 +19,7 @@
     }
     //ouverture bdd
     include('model/ouverture.php');
+
     $page = $_GET['page'];
     if ($page=="createAccount"){
         if($id!="visiteur"){
@@ -66,6 +68,7 @@
         }
         elseif($page=='account'){
             ?>
+            <link href="css/account.css" rel="stylesheet"/>
             <title> Votre Compte : <?php echo($_SESSION["username"]); ?> </title>
             <?php
         }
@@ -97,9 +100,9 @@
             elseif($page=='account'){
                 include('vues/account.php');
             }
-            elseif($_GET['page'] == 'trait')
+            elseif($page == 'verifConnexion')
             {
-                include('controler/trait.php');
+                include('controler/verifConnexion.php');
                 
             }
             else{
