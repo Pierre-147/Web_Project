@@ -4,6 +4,6 @@
     <div id="info">
         <p>Plus de fonctionalités seront disponible prochainement </p>
     </div>
-    
+    <?php //session_destroy()?>
 </div>
 
