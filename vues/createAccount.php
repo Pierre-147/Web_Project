@@ -1,4 +1,12 @@
 <div id="content-wrap">
+    <div id="creation">
+        <?php if(isset ($_SESSION["creation"])){
+            
+                echo($_SESSION["creation"]);
+            
+            }
+        ?>
+    </div>
     <div class='formulaire'>
         <div class='Creation'>
             <h1> Créez votre compte !</h1>

@@ -110,6 +110,10 @@
             elseif($page=="verifCreation"){
                 include('controler/verifCreation.php');
             }
+            elseif($page!="createAccount"){
+                $_SESSION["creation"]=NULL;
+            }
+            
             else{
                 die;
             }

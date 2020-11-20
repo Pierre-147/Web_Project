@@ -16,7 +16,10 @@
         if($user_email1==$mail){
            
            header("Location:index.php?page=createAccount");
-           echo("Cette adresse mail existe déjà");
+           $_SESSION["creation"]="Cette adresse mail existe déjà";
+        break;
+           
+
                 
         }
         
@@ -34,7 +37,7 @@
 
 
                     ));
-                echo("Bienvenue sur le bazard des films");
+                $_SESSION["creation"]="Vous pouvez maintenant vous connecter";
                 header("Location:index.php?page=createAccount");
                 
             break;
@@ -51,7 +54,7 @@
 
 
                     ));
-                echo("Bienvenue sur le bazard des films");
+                $_SESSION["creation"]="Vous pouvez maintenant vous connecter";
                 header("Location:index.php?page=createAccount");
                 
             break;
@@ -68,7 +71,7 @@
 
 
                     ));
-                echo("Bienvenue sur le bazard des films");
+                $_SESSION["creation"]="Vous pouvez maintenant vous connecter";
                 header("Location:index.php?page=createAccount");
                 
             break;
@@ -84,7 +87,7 @@
 
 
                     ));
-                echo("Bienvenue sur le bazard des films");
+                $_SESSION["creation"]="Vous pouvez maintenant vous connecter";
                 header("Location:index.php?page=createAccount");
                 
                 break;
@@ -100,7 +103,7 @@
 
 
                     ));
-                echo("Bienvenue sur le bazard des films");
+                $_SESSION["creation"]="Vous pouvez maintenant vous connecter";
                 header("Location:index.php?page=createAccount");
                 
                 break;
@@ -116,7 +119,7 @@
 
 
                     ));
-                echo("Bienvenue sur le bazard des films");
+                $_SESSION["creation"]="Vous pouvez maintenant vous connecter";
                 header("Location:index.php?page=createAccount");
                 
                 break;
@@ -132,7 +135,7 @@
 
 
                     ));
-                echo("Bienvenue sur le bazard des films");
+                $_SESSION["creation"]="Vous pouvez maintenant vous connecter";
                 header("Location:index.php?page=createAccount");
                 
                 break;
@@ -140,6 +143,7 @@
             elseif(empty($_POST["adresse"])&& empty($_POST["tel"])&& empty($_POST["date_naissance"])&& empty($_POST["nom"])&& empty($_POST["prenom"])&& empty($_POST["email1"])&& empty($_POST["password1"])){
                
                 header("Location:index.php?page=createAccount");
+                $_SESSION["creation"]="Veuillez remplir les champs";
                 
                 break;
             }
@@ -157,7 +161,10 @@
 
 
                     ));
-                echo("Vous pouvez maintenant vous connecter");
+                $_SESSION["creation"]="Vous pouvez maintenant vous connecter";
+                
+                
+                
                 header("Location:index.php?page=createAccount");
                 
                 break;
