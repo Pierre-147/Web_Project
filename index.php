@@ -26,7 +26,7 @@
             $page="account";
         }
     }
-    if ($page!="homepage" && $page!="account" && $page!="deconnexion" && $page!="verifConnexion"){
+    if ($page!="homepage" && $page!="account" && $page!="deconnexion" && $page!="verifConnexion" && $page!="verifCreation"){
         if($id=="visiteur"){
             $page="createAccount";
         }
