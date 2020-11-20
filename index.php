@@ -26,6 +26,11 @@
             $page="account";
         }
     }
+    if ($page!="homepage" && $page!="account" && $page!="deconnexion" && $page!="verifConnexion"){
+        if($id=="visiteur"){
+            $page="createAccount";
+        }
+    }
     ?>
 
     <head>
@@ -101,6 +106,9 @@
             }
             elseif($page=='account'){
                 include('vues/account.php');
+            }
+            elseif($page=='deconnexion'){
+                include('vues/deconnexion.php');
             }
             elseif($page == 'verifConnexion')
             {
