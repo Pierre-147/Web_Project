@@ -4,5 +4,6 @@
     <div id="info">
         <p>Plus de fonctionalités seront disponible prochainement </p>
     </div>
+    
 </div>
 

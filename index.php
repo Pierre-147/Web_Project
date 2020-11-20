@@ -29,10 +29,12 @@
     ?>
 
     <head>
+        
         <meta charset="iso-8859-1"/>
         <link href='css/body.css' rel='stylesheet'>    
         <?php 
         //differentes vues
+        
         if ($page== 'homepage')
         {
             ?>
@@ -104,6 +106,9 @@
             {
                 include('controler/verifConnexion.php');
                 
+            }
+            elseif($page=="verifCreation"){
+                include('controler/verifCreation.php');
             }
             else{
                 die;
