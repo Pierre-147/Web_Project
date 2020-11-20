@@ -1,8 +1,10 @@
 <div id="content-wrap">
     <label>Choisissez le quiz dont vous souhaitez voir le classement :</label>
+    <br/>
     <a href = "index.php?page=classement&varquiz=1">Quiz 1</a>
     <a href = "index.php?page=classement&varquiz=2">Quiz 2</a>
-    
+    <br/>
+    <br/>
     <?php 
     if (isset($_GET["varquiz"])){
         include('model/rankingUser.php');

@@ -11,9 +11,4 @@
     while ($donnee = $res->fetch()){
         array_push($tabprenom, [$donnee[0],$donnee[1]]);
     }
-
-
-
-    
-    
 ?>
