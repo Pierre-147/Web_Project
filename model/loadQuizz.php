@@ -12,6 +12,8 @@
         array_push($tabQuestion, $donnee[0]);
     }
 
+    //create an array with the different answerID
+    $tabAnswerID = array();
     // create an array with the different answers for each questions
     $req = "SELECT question_id FROM question WHERE question_quizz_id = $varquiz";
     $res=$database->query($req);
@@ -23,6 +25,15 @@
         while ($donnee2 = $res2->fetch()){
             array_push($rep_list, $donnee2[0]);
         }
+
+        $rep_list2 = array();
+        $req3 = "SELECT answer_id FROM answer WHERE answer_question_id = $donnee[0]";
+        $res3=$database->query($req3);
+        while ($donnee3 = $res3->fetch()){
+            array_push($rep_list2, $donnee3[0]);
+        }
+
+        array_push($tabAnswerID, $rep_list2);
         array_push($tabLabelReponse, $rep_list);
     }
 

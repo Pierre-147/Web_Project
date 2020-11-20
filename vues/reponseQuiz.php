@@ -4,6 +4,36 @@
     <?php 
     //on rajoute les fonctions de verification
     include('controler/verifQuiz.php');
+    include('controler/writeAnswer.php');
+    
+    $user = 1;
+    $dateTime = (new \DateTime())->format('Y-m-d H:i');
+
+    //ecriture dans la base de donnée
+    $i=0;
+    foreach($_POST as $elem)
+    {
+        $tabKey = array_keys($_POST);
+        foreach($elem as $el)
+        {
+            $var = $el;
+            if (strpos($el, "ID")===0)  //pas un input text
+            {
+                $id = substr($el, 2, strlen($el));
+                writeID($database, $user, $id, $dateTime);
+            }
+            else        //input text
+            {
+                $value = $el;
+                $id = $tabKey[$i];
+                writeValue($database, $user, $id, $value, $dateTime);
+            }
+        }
+        $i++;
+    }
+
+
+    $score = 0;
     $i=0;
     foreach($tabQuestion as $question)
     {
@@ -15,16 +45,36 @@
                 switch($tabTypeQuestion[$i])
                 {
                     case "radio":
-                        verifRadio($i, $tabReponse, $tabLabelReponse);
+                        $res = verifRadio($i, $tabReponse, $tabLabelReponse, $_POST['q'.($i+1)]);
+                        if ($res==1)
+                        {
+                            $score+=$res;
+                            //writeGoodAnswer($database, 1, $tabQuestionID[$i], $dateTime);
+                        }
                         break;
                     case "checkbox":
-                        verifCheck($i, $tabReponse, $tabLabelReponse);
+                        $res = verifCheck($i, $tabReponse, $tabLabelReponse, $_POST['q'.($i+1)]);
+                        if ($res==1)
+                        {
+                            $score+=$res;
+                            //writeGoodAnswer($database, 1, $tabQuestionID[$i], $dateTime);
+                        }
                         break;
                     case "select":
-                        verifSelect($i, $tabReponse, $tabLabelReponse);
+                        $res = verifSelect($i, $tabReponse, $tabLabelReponse, $_POST['q'.($i+1)]);
+                        if ($res==1)
+                        {
+                            $score+=$res;
+                            //writeGoodAnswer($database, 1, $tabQuestionID[$i], $dateTime);
+                        }
                         break;
                     case "input":
-                        verifInput($i, $tabReponse, $tabLabelReponse);
+                        $res = verifInput($i, $tabReponse, $tabLabelReponse, $_POST['q'.($i+1)]);
+                        if ($res==1)
+                        {
+                            $score+=$res;
+                            //writeGoodAnswer($database, 1, $tabQuestionID[$i], $dateTime);
+                        }
                         break;
                 }
                 ?>
@@ -33,5 +83,6 @@
         <?php
         $i++;
     }
+    echo("Score :".$score."/".$i);
     ?>
 </div>
