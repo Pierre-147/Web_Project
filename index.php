@@ -114,6 +114,11 @@
                 $_SESSION["creation"]=NULL;
             }
             
+            elseif($page == 'classement')
+            {
+                include('vues/classementgeneral.php');
+                
+            }
             else{
                 die;
             }
