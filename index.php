@@ -105,6 +105,11 @@
                 include('controler/verifConnexion.php');
                 
             }
+            elseif($page == 'classement')
+            {
+                include('vues/classementgeneral.php');
+                
+            }
             else{
                 die;
             }
