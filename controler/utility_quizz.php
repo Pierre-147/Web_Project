@@ -22,6 +22,7 @@
     }
 
     function delete_res($userid, $id_quizz){
-        $req = "DELETE FROM user_answer WHERE user_id = $userid";
+        $tabIdReponse = get_quizz_answer_id($id_quizz);
+        $req = "DELETE FROM user_answer WHERE user_id = $userid answer_id IN $tabIdReponse ";
     }
 ?>

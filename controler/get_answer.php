@@ -9,7 +9,7 @@
 
 
 
-    $req = "SELECT answer_id, value_answer FROM user_answer WHERE answer_id IN $tabIdReponse";
+    $req = "SELECT answer_id, value_answer FROM user_answer WHERE user_id = $userid AND answer_id IN $tabIdReponse";
     $res=$database->query($req);
     $tabAnswer = array();
     while($donnee = $res->fetch()){
