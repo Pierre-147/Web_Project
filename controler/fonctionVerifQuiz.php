@@ -1,6 +1,6 @@
 <?php 
 //nbQ : index de la question (0 :(question 1))
-function verifRadio($nbQ, $tabReponse, $tabLabelReponse, $_INPUT)
+function verifRadio($nbQ, $tabReponse, $tabLabelReponse, $_INPUT, $display)
 {
     //on recherche la bonne reponse
     $indexRecherche=0;
@@ -19,24 +19,24 @@ function verifRadio($nbQ, $tabReponse, $tabLabelReponse, $_INPUT)
         $varRep = urldecode($_INPUT[0]);      //entree de l'utilisateur
         if($varRep == $bonneReponse)
         {
-            echo("Bonne réponse");
+            if ($display==true) echo("Bonne réponse");
             return 1;
         }
         else
         {
-            echo("Faux la réponse était : ".$bonneReponse);
+            if ($display==true) echo("Faux la réponse était : ".$bonneReponse);
             return 0;
         } 
     }
     else
     {
-        echo("Faux la réponse etait : ".$bonneReponse);
+        if ($display==true) echo("Faux la réponse etait : ".$bonneReponse);
         return 0;
     }         
 }
 
 //nbQ : index de la question (0 :(question 1))
-function verifCheck($nbQ, $tabReponse, $tabLabelReponse, $_INPUT)
+function verifCheck($nbQ, $tabReponse, $tabLabelReponse, $_INPUT, $display)
 {
     //questionnaire a choix multiples => on recherche le nombre de bonne réponse
     $totalBonneReponse=0;
@@ -77,12 +77,12 @@ function verifCheck($nbQ, $tabReponse, $tabLabelReponse, $_INPUT)
 
     if ($test == true && $totalBonneReponse==$bonneReponseInput)        //si il n'y pas eu de mauvaises reponses et qu'on a repondu le bon nombre de bonnes reponses
     {
-            echo("Bonne réponse");
+        if ($display==true) echo("Bonne réponse");
             return 1;
     }
     else 
     {
-        echo("Faux les réponses étaient : ");
+        if ($display==true) echo("Faux les réponses étaient : ");
         //on recherche les bonnes réponses
         $i=0;
         $autoVirgule = false;
@@ -91,8 +91,8 @@ function verifCheck($nbQ, $tabReponse, $tabLabelReponse, $_INPUT)
             if ($tabReponse[$nbQ][$i] == "1")
             {
                 if ($autoVirgule)
-                    echo(", ");
-                echo($reponse);
+                    if ($display==true) echo(", ");
+                if ($display==true)echo($reponse);
                 $autoVirgule = true;
             }
             $i++;
@@ -102,7 +102,7 @@ function verifCheck($nbQ, $tabReponse, $tabLabelReponse, $_INPUT)
 }
 
 //nbQ : index de la question (0 :(question 1))
-function verifSelect($nbQ, $tabReponse, $tabLabelReponse, $_INPUT)
+function verifSelect($nbQ, $tabReponse, $tabLabelReponse, $_INPUT, $display)
 {
     //on recherche la bonne reponse
     $indexRecherche=0;
@@ -121,24 +121,24 @@ function verifSelect($nbQ, $tabReponse, $tabLabelReponse, $_INPUT)
         $varRep = urldecode($_INPUT);      //POST   //entree de l'utilisateur
         if($varRep == $bonneReponse)
         {
-            echo("Bonne réponse");
+            if ($display==true) echo("Bonne réponse");
             return 1;
         }
         else
         {
-            echo("Faux la réponse était : ".$bonneReponse);
+            if ($display==true) echo("Faux la réponse était : ".$bonneReponse);
             return 0;
         } 
     }
     else
     {
-        echo("Faux la réponse etait : ".$bonneReponse);
+        if ($display==true) echo("Faux la réponse etait : ".$bonneReponse);
         return 0;
     }              
 }
 
 //nbQ : index de la question (0 :(question 1))
-function verifInput($nbQ, $tabReponse, $tabLabelReponse, $_INPUT)
+function verifInput($nbQ, $tabReponse, $tabLabelReponse, $_INPUT, $display)
 {     
     //on recherche la bonne reponse
     $indexRecherche=0;
@@ -157,18 +157,18 @@ function verifInput($nbQ, $tabReponse, $tabLabelReponse, $_INPUT)
         $varRep = $_INPUT;  //POST    //entree de l'utilisateur
         if($varRep == $bonneReponse)
         {
-            echo("Bonne réponse");
+            if ($display==true) echo("Bonne réponse");
             return 1;
         }
         else
         {
-            echo("Faux la réponse était : ".$bonneReponse);
+            if ($display==true) echo("Faux la réponse était : ".$bonneReponse);
             return 0;
         } 
     }
     else
     {
-        echo("Faux la réponse etait : ".$bonneReponse);
+        if ($display==true) echo("Faux la réponse etait : ".$bonneReponse);
         return 0;
     } 
 }

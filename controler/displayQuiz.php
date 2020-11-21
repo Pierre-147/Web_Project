@@ -17,7 +17,7 @@ foreach($tabQuestion as $question)
  
                  case "select":
                      ?>
-                     <select name=<?php echo($i."[]");?>>
+                     <select name=<?php echo("select".$i."[]");?>>
                      <option value="">--Choisir--</option>
                      <?php
                      $j=0;
