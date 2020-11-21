@@ -1,37 +1,11 @@
 <div id="content-wrap">
-    <h3>Quiz <?php echo($varquiz." : ".$title);?></h3>
-    <br/>
     <?php 
-    //on rajoute les fonctions de verification
-    include('controler/verifQuiz.php');
-    $i=0;
-    foreach($tabQuestion as $question)
-    {
-        ?>
-        <label id="question" for=<?php echo("q".($i+1))?>><?php echo("Question ".($i+1)." : ".$question);?></label>
-        <div id="reponsePossible">
-            <p>
-                <?php
-                switch($tabTypeQuestion[$i])
-                {
-                    case "radio":
-                        verifRadio($i, $tabReponse, $tabLabelReponse);
-                        break;
-                    case "checkbox":
-                        verifCheck($i, $tabReponse, $tabLabelReponse);
-                        break;
-                    case "select":
-                        verifSelect($i, $tabReponse, $tabLabelReponse);
-                        break;
-                    case "input":
-                        verifInput($i, $tabReponse, $tabLabelReponse);
-                        break;
-                }
-                ?>
-            </p>
-        </div>
-        <?php
-        $i++;
-    }
+    //on ecrit les reponses dans la base de donnnée
+    $user = 1;
+    $dateTime = (new \DateTime())->format('Y-m-d H:i');
+    include('model/writeAnswer.php');
+
+    //verification avec affichage
+    include('controler/repQuizWithDisplay.php')
     ?>
 </div>

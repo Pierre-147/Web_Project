@@ -1,6 +1,6 @@
 <?php 
 //nbQ : index de la question (0 :(question 1))
-function verifRadio($nbQ, $tabReponse, $tabLabelReponse)
+function verifRadio($nbQ, $tabReponse, $tabLabelReponse, $_INPUT, $display)
 {
     //on recherche la bonne reponse
     $indexRecherche=0;
@@ -14,26 +14,29 @@ function verifRadio($nbQ, $tabReponse, $tabLabelReponse)
     $bonneReponse = $tabLabelReponse[$nbQ][$indexRecherche];
 
     //on verifie si la bonne reponse de la base de donnee correspond à la reponse submit
-    if (isset($_POST['q'.($nbQ+1)]))
+    if (isset($_INPUT))    //$_POST['q'.($nbQ+1)]
     {
-        $varRep = urldecode($_POST['q'.($nbQ+1)][0]);      //entree de l'utilisateur
+        $varRep = urldecode($_INPUT[0]);      //entree de l'utilisateur
         if($varRep == $bonneReponse)
         {
-            echo("Bonne réponse");
+            if ($display==true) echo("Bonne réponse");
+            return 1;
         }
         else
         {
-            echo("Faux la réponse était : ".$bonneReponse);
+            if ($display==true) echo("Faux la réponse était : ".$bonneReponse);
+            return 0;
         } 
     }
     else
     {
-        echo("Faux la réponse etait : ".$bonneReponse);
+        if ($display==true) echo("Faux la réponse etait : ".$bonneReponse);
+        return 0;
     }         
 }
 
 //nbQ : index de la question (0 :(question 1))
-function verifCheck($nbQ, $tabReponse, $tabLabelReponse)
+function verifCheck($nbQ, $tabReponse, $tabLabelReponse, $_INPUT, $display)
 {
     //questionnaire a choix multiples => on recherche le nombre de bonne réponse
     $totalBonneReponse=0;
@@ -43,13 +46,13 @@ function verifCheck($nbQ, $tabReponse, $tabLabelReponse)
             $totalBonneReponse++;
     }
 
-    if(isset($_POST['q'.($nbQ+1)])!=0)
+    if(isset($_INPUT)!=0)              //$_POST['q'.($nbQ+1)]
     {
         $test = true;      //on initialise un boolean, on suppose que la reponse est vrai sauf si on ne repond rien
 
         $bonneReponseInput=0;
         //on parcourt les reponses envoyées
-        $tabPost = $_POST['q'.($nbQ+1)];
+        $tabPost = $_INPUT;                 //POST
         foreach($tabPost as $repUser)
         {
             $varRep = urldecode($repUser);      //entre utilisateur
@@ -73,10 +76,13 @@ function verifCheck($nbQ, $tabReponse, $tabLabelReponse)
         $test= false;
 
     if ($test == true && $totalBonneReponse==$bonneReponseInput)        //si il n'y pas eu de mauvaises reponses et qu'on a repondu le bon nombre de bonnes reponses
-        echo("Bonne réponse");
+    {
+        if ($display==true) echo("Bonne réponse");
+            return 1;
+    }
     else 
     {
-        echo("Faux les réponses étaient : ");
+        if ($display==true) echo("Faux les réponses étaient : ");
         //on recherche les bonnes réponses
         $i=0;
         $autoVirgule = false;
@@ -85,17 +91,18 @@ function verifCheck($nbQ, $tabReponse, $tabLabelReponse)
             if ($tabReponse[$nbQ][$i] == "1")
             {
                 if ($autoVirgule)
-                    echo(", ");
-                echo($reponse);
+                    if ($display==true) echo(", ");
+                if ($display==true)echo($reponse);
                 $autoVirgule = true;
             }
             $i++;
         }
+        return 0;
     }
 }
 
 //nbQ : index de la question (0 :(question 1))
-function verifSelect($nbQ, $tabReponse, $tabLabelReponse)
+function verifSelect($nbQ, $tabReponse, $tabLabelReponse, $_INPUT, $display)
 {
     //on recherche la bonne reponse
     $indexRecherche=0;
@@ -109,26 +116,29 @@ function verifSelect($nbQ, $tabReponse, $tabLabelReponse)
     $bonneReponse = $tabLabelReponse[$nbQ][$indexRecherche];
 
     //on verifie si la bonne reponse de la base de donnee correspond à la reponse submit
-    if (isset($_POST['q'.($nbQ+1)]))
+    if (isset($_INPUT))            //$_POST['q'.($nbQ+1)]
     {
-        $varRep = urldecode($_POST['q'.($nbQ+1)]);      //entree de l'utilisateur
+        $varRep = urldecode($_INPUT);      //POST   //entree de l'utilisateur
         if($varRep == $bonneReponse)
         {
-            echo("Bonne réponse");
+            if ($display==true) echo("Bonne réponse");
+            return 1;
         }
         else
         {
-            echo("Faux la réponse était : ".$bonneReponse);
+            if ($display==true) echo("Faux la réponse était : ".$bonneReponse);
+            return 0;
         } 
     }
     else
     {
-        echo("Faux la réponse etait : ".$bonneReponse);
+        if ($display==true) echo("Faux la réponse etait : ".$bonneReponse);
+        return 0;
     }              
 }
 
 //nbQ : index de la question (0 :(question 1))
-function verifInput($nbQ, $tabReponse, $tabLabelReponse)
+function verifInput($nbQ, $tabReponse, $tabLabelReponse, $_INPUT, $display)
 {     
     //on recherche la bonne reponse
     $indexRecherche=0;
@@ -140,23 +150,26 @@ function verifInput($nbQ, $tabReponse, $tabLabelReponse)
         $i++;
     }
     $bonneReponse = $tabLabelReponse[$nbQ][$indexRecherche];
-
+    
     //on verifie si la bonne reponse de la base de donnee correspond à la reponse submit
-    if (isset($_POST['q'.($nbQ+1)]))
+    if (isset($_INPUT))        //$_POST['q'.($nbQ+1)]
     {
-        $varRep = $_POST['q'.($nbQ+1)];      //entree de l'utilisateur
+        $varRep = $_INPUT;  //POST    //entree de l'utilisateur
         if($varRep == $bonneReponse)
         {
-            echo("Bonne réponse");
+            if ($display==true) echo("Bonne réponse");
+            return 1;
         }
         else
         {
-            echo("Faux la réponse était : ".$bonneReponse);
+            if ($display==true) echo("Faux la réponse était : ".$bonneReponse);
+            return 0;
         } 
     }
     else
     {
-        echo("Faux la réponse etait : ".$bonneReponse);
+        if ($display==true) echo("Faux la réponse etait : ".$bonneReponse);
+        return 0;
     } 
 }
 ?>
