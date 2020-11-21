@@ -6,6 +6,8 @@ function verif($nbQuestion, $tabGoodAnswer, $tabInput, $display)
     $isOk = true;
     foreach($repOk as $elem)
     {
+        var_dump($tabInput);
+        echo($elem[1]);
         if (!in_array($elem[1], $tabInput))
         {
             $isOk = false;
@@ -21,5 +23,4 @@ function verif($nbQuestion, $tabGoodAnswer, $tabInput, $display)
     else
         echo("Juste");
 }
-
 ?>

@@ -74,8 +74,4 @@
         }
         array_push($tabValidation, $question);
     }
-
-    var_dump($tabValidation);
-
-
 ?>

@@ -20,8 +20,9 @@
         return($tabIdReponse);
     }
 
-    function delete_res($userid, $id_quizz){
-        $tabIdReponse = get_quizz_answer_id($id_quizz);
-        $req = "DELETE FROM user_answer WHERE user_id = $userid answer_id IN $tabIdReponse ";
+    function delete_res($userid, $id_quizz, $database){
+        $tabIdReponse = get_quizz_answer_id($id_quizz, $database);
+        $req = "DELETE FROM user_answer WHERE user_id = $userid AND answer_id IN $tabIdReponse";
+        $database->query($req);
     }
 ?>

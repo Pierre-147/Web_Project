@@ -1,7 +1,7 @@
 <?php
-    include('utility_quizz.php');
+    //include('utility_quizz.php');
 
-    $user = $_SESSION['user_id'];
+    $user = 1;//$_SESSION['user_id'];
 
 
     $tabIdReponse = get_quizz_answer_id($varquiz, $database);
@@ -20,7 +20,7 @@
     $tabKey = array_keys($tabAnswer);
 
     foreach($tabKey as $key){
-        if ($tabAnswer[$key] == ''){
+        if ($tabAnswer[$key] === NULL){
             $req = "SELECT answer_text FROM answer WHERE answer_id = $key";
             $res=$database->query($req);
             while($donnee = $res->fetch()){
@@ -28,7 +28,6 @@
             }
         }
     }
-    var_dump($tabAnswer);
 
 ?>
 
