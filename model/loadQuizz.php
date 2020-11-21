@@ -59,4 +59,23 @@
     while ($donnee = $res->fetch()){
         array_push($tabTypeQuestion, $donnee[0]);
     }
+
+
+    //create an array for a quiz containing all its questions, all its good answer and their text
+    $req = "SELECT question_id FROM question WHERE question_quizz_id = $varquiz";
+    $res=$database->query($req);
+    $tabValidation = array();
+    while ($donnee = $res->fetch()){
+        $req2 = "SELECT answer_id, answer_text FROM answer WHERE answer_question_id = $donnee[0] AND is_valid_answer = 1";
+        $res2=$database->query($req2);
+        $question = array();
+        while ($donnee2 = $res2->fetch()){
+            array_push($question, [$donnee2[0], $donnee2[1]]);
+        }
+        array_push($tabValidation, $question);
+    }
+
+    var_dump($tabValidation);
+
+
 ?>

@@ -1,15 +1,14 @@
 <?php
-    include('../model/ouverture.php');
     include('utility_quizz.php');
-    $user = $_SESSION['user'];
-    $varquiz = 2;
+
+    $user = $_SESSION['user_id'];
 
 
-    $tabIdReponse = get_quizz_answer_id($varquiz);
+    $tabIdReponse = get_quizz_answer_id($varquiz, $database);
 
 
 
-    $req = "SELECT answer_id, value_answer FROM user_answer WHERE user_id = $userid AND answer_id IN $tabIdReponse";
+    $req = "SELECT answer_id, answer_value FROM user_answer WHERE user_id = $user AND answer_id IN $tabIdReponse";
     $res=$database->query($req);
     $tabAnswer = array();
     while($donnee = $res->fetch()){
@@ -25,13 +24,11 @@
             $req = "SELECT answer_text FROM answer WHERE answer_id = $key";
             $res=$database->query($req);
             while($donnee = $res->fetch()){
-                var_dump($donnee);
                 $tabAnswer[$key] = $donnee[0];
             }
         }
     }
-
-    
+    var_dump($tabAnswer);
 
 ?>
 

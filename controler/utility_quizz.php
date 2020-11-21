@@ -1,7 +1,6 @@
 <?php
 
-    function get_quizz_answer_id($id_quizz){
-
+    function get_quizz_answer_id($id_quizz, $database){
         $req = "SELECT question_id FROM question WHERE question_quizz_id = $id_quizz";
         $res=$database->query($req);
         $tabIdReponse = '(';
