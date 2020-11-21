@@ -6,6 +6,27 @@
     include('model/writeAnswer.php');
 
     //verification avec affichage
-    include('controler/repQuizWithDisplay.php')
+    include('controler/repQuizWithDisplay.php');
+
+
+    $tabGoodAnswer = array(
+        array(
+            array("1", "6")
+        ),
+        array(
+            array("5", "Jar Jar"),
+            array("6", "R2"),
+        ),
+        array(
+            array("10", "Dark Sidious")
+        ),
+        array(
+            array("11", "1977")
+        ),
+        array(
+            array("31", "1")
+        )
+    )
+
     ?>
 </div>
