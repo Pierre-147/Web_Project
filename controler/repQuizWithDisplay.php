@@ -1,36 +1,22 @@
 <?php    
     //on rajoute les fonctions de verification
-    include('controler/fonctionVerifQuiz.php');
+    include('controler/fonctionVerif.php');
 ?>
 <!--Reponse avec affichage-->
 <div id="zoneResultQuiz">
     <h3 id="titleQuiz">Quiz <?php echo($varquiz." : ".$title);?></h3>
     <br/>
     <?php
-    $score = 0;
     $i=0;
-    foreach($tabQuestion as $question)
-    {
+    $score = 0;
+    foreach($tabValidation as $question)
+    {   
         ?>
-        <label id="question" for=<?php echo("q".($i+1))?>><?php echo("Question ".($i+1)." : ".$question);?></label>
+        <label id="question" for=<?php echo("q".($i+1))?>><?php echo("Question ".($i+1)." : ".$tabQuestion[$i]);?></label>
         <div id="reponsePossible">
             <p>
                 <?php
-                switch($tabTypeQuestion[$i])
-                {
-                    case "radio":
-                        $score = verifRadio($i, $tabReponse, $tabLabelReponse, $_POST['q'.($i+1)], true);
-                        break;
-                    case "checkbox":
-                        $score = verifCheck($i, $tabReponse, $tabLabelReponse, $_POST['q'.($i+1)], true);
-                        break;
-                    case "select":
-                        $score = verifSelect($i, $tabReponse, $tabLabelReponse, $_POST['q'.($i+1)], true);
-                        break;
-                    case "input":
-                        $score = verifInput($i, $tabReponse, $tabLabelReponse, $_POST['q'.($i+1)], true);
-                        break;
-                }
+                    $score+=verifQuiz($i, $tabValidation, $tabAnswer, true);
                 ?>
             </p>
         </div>

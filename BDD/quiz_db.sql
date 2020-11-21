@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : sam. 07 nov. 2020 à 15:28
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Host: localhost
+-- Generation Time: Nov 21, 2020 at 05:45 PM
+-- Server version: 8.0.22-0ubuntu0.20.04.2
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,26 +19,24 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `quiz_db`
+-- Database: `quiz_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `answer`
+-- Table structure for table `answer`
 --
 
-DROP TABLE IF EXISTS `answer`;
-CREATE TABLE IF NOT EXISTS `answer` (
-  `answer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'answer identifier',
+CREATE TABLE `answer` (
+  `answer_id` int NOT NULL COMMENT 'answer identifier',
   `answer_text` varchar(255) NOT NULL COMMENT 'text of the answer',
   `is_valid_answer` tinyint(1) NOT NULL COMMENT 'valid answer for question',
-  `answer_question_id` int(11) NOT NULL COMMENT 'question related',
-  PRIMARY KEY (`answer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+  `answer_question_id` int NOT NULL COMMENT 'question related'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `answer`
+-- Dumping data for table `answer`
 --
 
 INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_question_id`) VALUES
@@ -83,21 +82,18 @@ INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_que
 -- --------------------------------------------------------
 
 --
--- Structure de la table `question`
+-- Table structure for table `question`
 --
 
-DROP TABLE IF EXISTS `question`;
-CREATE TABLE IF NOT EXISTS `question` (
-  `question_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'question_identification',
+CREATE TABLE `question` (
+  `question_id` int NOT NULL COMMENT 'question_identification',
   `question_title` varchar(255) NOT NULL COMMENT 'title of the question',
-  `question_quizz_id` int(11) NOT NULL COMMENT 'link question quizz',
-  `question_input_type` varchar(255) NOT NULL COMMENT 'input of the question',
-  PRIMARY KEY (`question_id`),
-  KEY `question_quizz_id_fk` (`question_quizz_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+  `question_quizz_id` int NOT NULL COMMENT 'link question quizz',
+  `question_input_type` varchar(255) NOT NULL COMMENT 'input of the question'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `question`
+-- Dumping data for table `question`
 --
 
 INSERT INTO `question` (`question_id`, `question_title`, `question_quizz_id`, `question_input_type`) VALUES
@@ -115,18 +111,16 @@ INSERT INTO `question` (`question_id`, `question_title`, `question_quizz_id`, `q
 -- --------------------------------------------------------
 
 --
--- Structure de la table `quizz`
+-- Table structure for table `quizz`
 --
 
-DROP TABLE IF EXISTS `quizz`;
-CREATE TABLE IF NOT EXISTS `quizz` (
-  `quizz_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Quizz Identifiant',
-  `quizz_name` varchar(255) NOT NULL COMMENT 'Quizz name',
-  PRIMARY KEY (`quizz_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+CREATE TABLE `quizz` (
+  `quizz_id` int NOT NULL COMMENT 'Quizz Identifiant',
+  `quizz_name` varchar(255) NOT NULL COMMENT 'Quizz name'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `quizz`
+-- Dumping data for table `quizz`
 --
 
 INSERT INTO `quizz` (`quizz_id`, `quizz_name`) VALUES
@@ -136,24 +130,22 @@ INSERT INTO `quizz` (`quizz_id`, `quizz_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user identifiant',
+CREATE TABLE `user` (
+  `user_id` int NOT NULL COMMENT 'user identifiant',
   `user_last_name` varchar(255) NOT NULL COMMENT 'user last name',
   `user_first_name` varchar(255) NOT NULL COMMENT 'user first name',
   `user_adress` longtext COMMENT 'user physical adress',
   `user_phone` varchar(255) DEFAULT NULL COMMENT 'user phone',
   `user_birthdate` datetime DEFAULT NULL,
   `user_password` varchar(255) NOT NULL COMMENT 'User Password',
-  `user_mail` varchar(100) NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `user_mail` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `user_last_name`, `user_first_name`, `user_adress`, `user_phone`, `user_birthdate`, `user_password`, `user_mail`) VALUES
@@ -161,37 +153,121 @@ INSERT INTO `user` (`user_id`, `user_last_name`, `user_first_name`, `user_adress
 (2, 'Niclas', 'Pierre', NULL, NULL, NULL, 'pass', 'pierre.niclas@student.yncrea.fr'),
 (3, 'Chopineau', 'Maxence', NULL, NULL, NULL, 'mot1', 'maxence.chopineau@student.yncrea.fr'),
 (4, 'Gross', 'Michael', NULL, NULL, NULL, 'mot2', 'michael.gross@student.yncrea.fr'),
-(5, 'Delannoy', 'Cyril', NULL, NULL, NULL, 'mot3', 'cyril.delannoy@student.yncrea.fr');
+(5, 'Delannoy', 'Cyril', NULL, NULL, NULL, 'mot3', 'cyril.delannoy@student.yncrea.fr'),
+(6, '', '', '', '', NULL, '', ''),
+(7, '', '', '', '', NULL, '', '');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user_answer`
+-- Table structure for table `user_answer`
 --
 
-DROP TABLE IF EXISTS `user_answer`;
-CREATE TABLE IF NOT EXISTS `user_answer` (
-  `user_answer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'User answer identifiant',
-  `user_id` int(11) NOT NULL COMMENT 'user identifiant',
-  `answer_id` int(11) NOT NULL COMMENT 'answer_id',
+CREATE TABLE `user_answer` (
+  `user_answer_id` int NOT NULL COMMENT 'User answer identifiant',
+  `user_id` int NOT NULL COMMENT 'user identifiant',
+  `answer_id` int NOT NULL COMMENT 'answer_id',
   `user_answer_date` timestamp NULL DEFAULT NULL COMMENT 'date of answer user',
-  PRIMARY KEY (`user_answer_id`),
-  KEY `user_id_fk` (`user_id`),
-  KEY `answer_id_fk` (`answer_id`)
+  `answer_value` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contraintes pour les tables déchargées
+-- Dumping data for table `user_answer`
+--
+
+INSERT INTO `user_answer` (`user_answer_id`, `user_id`, `answer_id`, `user_answer_date`, `answer_value`) VALUES
+(271, 1, 30, '2020-11-21 16:37:00', ''),
+(278, 1, 30, '2020-11-21 16:41:00', ''),
+(282, 1, 30, '2020-11-21 16:42:00', ''),
+(283, 1, 30, '2020-11-21 16:43:00', ''),
+(285, 1, 30, '2020-11-21 16:43:00', ''),
+(286, 1, 14, '2020-11-21 16:44:00', NULL),
+(287, 1, 23, '2020-11-21 16:44:00', NULL),
+(288, 1, 30, '2020-11-21 16:44:00', '');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Contraintes pour la table `question`
+-- Indexes for table `answer`
+--
+ALTER TABLE `answer`
+  ADD PRIMARY KEY (`answer_id`);
+
+--
+-- Indexes for table `question`
+--
+ALTER TABLE `question`
+  ADD PRIMARY KEY (`question_id`),
+  ADD KEY `question_quizz_id_fk` (`question_quizz_id`);
+
+--
+-- Indexes for table `quizz`
+--
+ALTER TABLE `quizz`
+  ADD PRIMARY KEY (`quizz_id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `user_answer`
+--
+ALTER TABLE `user_answer`
+  ADD PRIMARY KEY (`user_answer_id`),
+  ADD KEY `user_id_fk` (`user_id`),
+  ADD KEY `answer_id_fk` (`answer_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `answer`
+--
+ALTER TABLE `answer`
+  MODIFY `answer_id` int NOT NULL AUTO_INCREMENT COMMENT 'answer identifier', AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT for table `question`
+--
+ALTER TABLE `question`
+  MODIFY `question_id` int NOT NULL AUTO_INCREMENT COMMENT 'question_identification', AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `quizz`
+--
+ALTER TABLE `quizz`
+  MODIFY `quizz_id` int NOT NULL AUTO_INCREMENT COMMENT 'Quizz Identifiant', AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT COMMENT 'user identifiant', AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `user_answer`
+--
+ALTER TABLE `user_answer`
+  MODIFY `user_answer_id` int NOT NULL AUTO_INCREMENT COMMENT 'User answer identifiant', AUTO_INCREMENT=289;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `question`
 --
 ALTER TABLE `question`
   ADD CONSTRAINT `question_quizz_id_fk` FOREIGN KEY (`question_quizz_id`) REFERENCES `quizz` (`quizz_id`);
 
 --
--- Contraintes pour la table `user_answer`
+-- Constraints for table `user_answer`
 --
 ALTER TABLE `user_answer`
   ADD CONSTRAINT `answer_id_fk` FOREIGN KEY (`answer_id`) REFERENCES `answer` (`answer_id`),
