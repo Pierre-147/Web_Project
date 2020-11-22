@@ -126,7 +126,10 @@
                 include('vues/account.php');
             }
             elseif($page=='deconnexion'){
-                include('vues/deconnexion.php');
+                include('controler/deconnexion.php');
+            }
+            elseif($page=='suppression'){
+                include('controler/deletequiz.php');
             }
             elseif($page == 'verifConnexion')
             {

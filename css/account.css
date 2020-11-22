@@ -1,7 +1,7 @@
 body
 {
     background-image: url("../image/acount.jpeg");
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-size: 100vw;
 }
 
@@ -13,4 +13,28 @@ h3 {
 #info p{
     text-align: right;
     margin-right: 2%;
+}
+
+.bouton{
+    border:none;
+	padding:6px 0 6px 0;
+	border-radius:8px;
+	box-shadow:3px 3px 12px #999;
+	background:#fff;
+	font:bold 13px Arial;
+}
+
+#Supprimer{
+    margin : 2% 2% 2% 2%;
+    border-radius: 20px;
+}
+
+#Bienvenue{
+    text-align: center;
+    font-size: 2em;
+    color : white;
+}
+
+#Disconect{
+    margin-left: 90%;
 }
