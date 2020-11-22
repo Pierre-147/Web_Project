@@ -2,12 +2,15 @@
 <html>
     <?php
     session_start();       //on demarre la session
+    //ouverture bdd
+    include('model/ouverture.php');
+    include("model/getNameByID.php");
     //affichage utilisateur
-    if(!isset($_SESSION["username"])){
-        $id= "visiteur";
+    if(!isset($_SESSION["id"])){
+        $name= "visiteur";
     }
     else{
-        $id= $_SESSION["username"];
+        $name= getName($_SESSION["id"], $database) ;
     }
 
     if(!isset($_GET['page'])){
@@ -18,20 +21,19 @@
             $_GET['page'] = 'createAccount';
         }
     }
-    //ouverture bdd
-    include('model/ouverture.php');
+    
 
     //si on est connecte, on redirige vers notre page de compte
     $page = $_GET['page'];
     if ($page=="createAccount"){
-        if($id!="visiteur"){
+        if($name!="visiteur"){
             $page="account";
         }
     }
 
     //redirection des quizz si on est pas connecté
     if ($page!="homepage" && $page!="account" && $page!="deconnexion" && $page!="verifConnexion" && $page!="verifCreation"){
-        if($id=="visiteur"){
+        if($name=="visiteur"){
             $page="createAccount";
         }
     }
@@ -85,7 +87,7 @@
         elseif($page=='account'){
             ?>
             <link href="css/account.css" rel="stylesheet"/>
-            <title> Votre Compte : <?php echo($_SESSION["username"]); ?> </title>
+            <title> Votre Compte : <?php echo(getName($_SESSION["id"], $database)); ?> </title>
             <?php
         }
         elseif($page == "classement")
