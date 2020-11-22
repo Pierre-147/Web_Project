@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <?php
-    session_start();
+    session_start();       //on demarre la session
+    //affichage utilisateur
     if(!isset($_SESSION["username"])){
         $id= "visiteur";
     }
@@ -20,15 +21,30 @@
     //ouverture bdd
     include('model/ouverture.php');
 
+    //si on est connecte, on redirige vers notre page de compte
     $page = $_GET['page'];
     if ($page=="createAccount"){
         if($id!="visiteur"){
             $page="account";
         }
     }
+
+    //redirection des quizz si on est pas connecté
+    if ($page!="homepage" && $page!="account" && $page!="deconnexion" && $page!="verifConnexion" && $page!="verifCreation"){
+        if($id=="visiteur"){
+            $page="createAccount";
+        }
+    }
+
+    //reset des messages d'erreur de connection
+    if($page != "createAccount")
+    {
+        $_SESSION["creation"]=NULL;
+    }
     ?>
 
     <head>
+        
         <meta charset="iso-8859-1"/>
         <link href='css/body.css' rel='stylesheet'>    
         <?php 
@@ -72,6 +88,13 @@
             <title> Votre Compte : <?php echo($_SESSION["username"]); ?> </title>
             <?php
         }
+        elseif($page == "classement")
+        {
+            ?>
+            <link href="css/classement.css" rel="stylesheet"/>
+            <title>Classement </title>
+            <?php
+        }
         ?>
     </head>
 
@@ -79,7 +102,6 @@
         <div id="page-container">
             <?php
             include('vues/header.php');
-
             //differentes vues
             if ($page== 'homepage')
             {
@@ -100,10 +122,20 @@
             elseif($page=='account'){
                 include('vues/account.php');
             }
+            elseif($page=='deconnexion'){
+                include('vues/deconnexion.php');
+            }
             elseif($page == 'verifConnexion')
             {
                 include('controler/verifConnexion.php');
                 
+            }
+            elseif($page=="verifCreation"){
+                include('controler/verifCreation.php');
+            }
+            elseif($page == "classement")
+            {
+                include('vues/classementgeneral.php');
             }
             else{
                 die;

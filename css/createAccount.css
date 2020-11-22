@@ -44,3 +44,9 @@ h1{
 	font:bold 13px Arial;
     
 }
+
+#creation{
+    color: beige;
+    text-align: center;
+    font-size: larger;
+}

@@ -9,6 +9,7 @@
                 <a href = "index.php?page=quizz&varquiz=2">Quiz 2</a>
             </nav>
         </div>
+        <a href = 'index.php?page=classement'>Classement général</a>
         <a href = 'index.php?page=createAccount'>Votre compte</a>
         <p id= 'welcome'>
             <?php echo("Bienvenue ".$id) ; ?>
