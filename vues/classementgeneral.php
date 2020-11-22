@@ -29,14 +29,16 @@
             $user=$names[2];
             include('controler/get_answer.php');
             include('controler/repQuizWithoutDisplay.php');
-            ?>
-            <tr>
-                <td><?php echo($names[1]);?></td>
-                <td><?php echo($names[0]);?></td>
-                <td><?php echo($score);?>/<?php echo($total);?></td>
-                <td><?php echo($date);?></td>
-            </tr>
-            <?php
+            if ($date!=null){
+                ?>
+                <tr>
+                    <td><?php echo($names[1]);?></td>
+                    <td><?php echo($names[0]);?></td>
+                    <td><?php echo($score);?>/<?php echo($total);?></td>
+                    <td><?php echo($date);?></td>
+                </tr>
+                <?php
+            }
         }
         ?>
         </table>
