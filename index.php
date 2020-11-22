@@ -87,6 +87,7 @@
         elseif($page=='account'){
             ?>
             <link href="css/account.css" rel="stylesheet"/>
+            <link href="css/quiz.css" rel="stylesheet"/>
             <title> Votre Compte : <?php echo(getName($_SESSION["id"], $database)); ?> </title>
             <?php
         }

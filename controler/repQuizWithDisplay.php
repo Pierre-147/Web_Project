@@ -1,7 +1,3 @@
-<?php    
-    //on rajoute les fonctions de verification
-    include('controler/fonctionVerif.php');
-?>
 <!--Reponse avec affichage-->
 <div id="zoneResultQuiz">
     <h3 id="titleQuiz">Quiz <?php echo($varquiz." : ".$title);?></h3>
