@@ -1,6 +1,5 @@
 <?php
-//on rajoute les fonctions de verification
-include('controler/fonctionVerif.php');
+
 
 $score = 0;     //score
 $total = 0;     //combien de question
