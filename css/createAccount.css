@@ -4,7 +4,7 @@ form{
     text-align: center;   
     background-color: rgb(190, 190, 216);
     margin: 0 auto;
-    width: 400px;  
+    width: 470px;
 }
 
 .formulaire{
@@ -16,7 +16,7 @@ form{
 label{
     display: inline-block;
     text-align: center;
-    width: 130px;
+    width: 200px;
 }
 
 input{
