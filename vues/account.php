@@ -8,14 +8,19 @@
     </div>
     <div>
         <?php
+            //fonctions
+            include("model/utilityQuizz.php");
+            include("controler/fonctionVerif.php");
+            //user
             $user = $_SESSION["id"];
             $dateTime = (new \DateTime())->format('Y-m-d H:i');
+            
+            //quiz 1
             $varquiz=1;
-            include("controler/utility_quizz.php");
-            include("controler/fonctionVerif.php");
+            //on charge le quiz 1
             include("model/loadQuizz.php");
             //on recupere les reponses
-            include('controler/get_answer.php');
+            include('model/getAnswer.php');
             if ($date!=null){
                 //on inclut la verification avec affichage
                 include('controler/repQuizWithDisplay.php'); 
@@ -27,10 +32,13 @@
                 </div>
                 <?php
             }
+
+            //quiz 2
             $varquiz=2;
+            //on charge le quiz 2
             include("model/loadQuizz.php");
             //on recupere les reponses
-            include('controler/get_answer.php');
+            include('model/getAnswer.php');
             if ($date!=null){
                 //on inclut la verification avec affichage
                 include('controler/repQuizWithDisplay.php'); 

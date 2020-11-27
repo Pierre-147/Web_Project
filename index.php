@@ -129,7 +129,7 @@
                 include('controler/deconnexion.php');
             }
             elseif($page=='suppression'){
-                include('controler/deletequiz.php');
+                include('controler/deleteQuiz.php');
             }
             elseif($page == 'verifConnexion')
             {
@@ -141,7 +141,7 @@
             }
             elseif($page == "classement")
             {
-                include('vues/classementgeneral.php');
+                include('vues/classementGeneral.php');
             }
             else{
                 die;
