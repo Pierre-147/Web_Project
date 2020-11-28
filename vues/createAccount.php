@@ -10,7 +10,7 @@
     <div class='formulaire'>
         <div class='Creation'>
             <h1> Créez votre compte !</h1>
-            
+            <!--creation du formulaire de creation de compte-->
             <form method="POST" action=<?php echo("index.php?page=verifCreation")?>>
             <br />
                 <label> Nom : </label>
@@ -38,7 +38,7 @@
 
         <div class='Connection'>
             <h1> Connecter vous !</h1>
-
+            <!--creation du formulaire de connexion-->
             <form method="POST" action=<?php echo("index.php?page=verifConnexion")?>>
                 <br />
                 <label for="email"> E-Mail :  </label>
