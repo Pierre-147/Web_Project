@@ -1,4 +1,4 @@
-<?php
+e<?php
 
     function get_quizz_answer_id($id_quizz, $database){
         $req = "SELECT question_id FROM question WHERE question_quizz_id = $id_quizz";
@@ -14,7 +14,7 @@
             
         }
 
-        $tabIdReponse = substr($tabIdReponse,0,-2);
+        $tabIdReponse = substr($tabIdReponse,0,-1);
         $tabIdReponse .= ')';
 
         return($tabIdReponse);
