@@ -1,7 +1,4 @@
 <?php
-
-    
-
     $tabIdReponse = get_quizz_answer_id($varquiz, $database);
 
 

@@ -12,7 +12,7 @@
             <h1> Créez votre compte !</h1>
             
             <form method="POST" action=<?php echo("index.php?page=verifCreation")?>>
-                <br />
+            <br />
                 <label> Nom : </label>
                 <input type="text" placeholder="Nom" name="nom"/><br /><br />
                 <label> Prénom : </label>
@@ -20,19 +20,19 @@
                 <label> E-Mail : </label>
                 <input type="mail" placeholder="e-mail" name="email1"/><br /><br />
                 <label> Adresse postale : </label>
-                <input type="mail" placeholder="Adresse postale" name="adresse"/><br /><br />
+                <input type="adresse" placeholder="Adresse postale" name="adresse"/><br /><br />
                 <label> Numéro de téléphone : </label>
                 <input type="tel" name="tel"/><br /><br />
                 <label> Date de naissance : </label>
-                <input type="date" placeholder="2000-01-O1" name="date_naissance"/><br /><br />
+                <input type="date" placeholder="2000-01-O1" name="dateNaissance"/><br /><br />
                 <label> Mot de passe :</label>
                 <input type="password" placeholder="Mot de passe" name="password1"/><br /><br />
                 <label> Confirmez votre mot de passe : </label>
-                <input type="password" placeholder="Confirmez votre mot de passe"/><br /><br />
+                <input type="password" placeholder="Confirmez votre mot de passe" name="password2"/><br /><br />
         
                 <input type="submit" class= bouton value="Valider" name="connection" />
                 <br />
-                <br />  
+                <br /> 
             </form>
         </div>
 

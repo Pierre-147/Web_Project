@@ -129,19 +129,19 @@
                 include('controler/deconnexion.php');
             }
             elseif($page=='suppression'){
-                include('controler/deletequiz.php');
+                include('controler/deleteQuiz.php');
             }
             elseif($page == 'verifConnexion')
             {
-                include('controler/verifConnexion.php');
+                include('model/verifConnexion.php');
                 
             }
             elseif($page=="verifCreation"){
-                include('controler/verifCreation.php');
+                include('model/verifCreation.php');
             }
             elseif($page == "classement")
             {
-                include('vues/classementgeneral.php');
+                include('vues/classementGeneral.php');
             }
             else{
                 die;
