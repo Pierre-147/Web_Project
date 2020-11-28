@@ -1,5 +1,6 @@
-e<?php
+<?php
 
+    #create an array holding every answer Id for a quizz
     function get_quizz_answer_id($id_quizz, $database){
         $req = "SELECT question_id FROM question WHERE question_quizz_id = $id_quizz";
         $res=$database->query($req);
@@ -20,6 +21,7 @@ e<?php
         return($tabIdReponse);
     }
 
+    #erase all the answers of an user to a quiz 
     function delete_res($userid, $id_quizz, $database){
         $tabIdReponse = get_quizz_answer_id($id_quizz, $database);
         $req = "DELETE FROM user_answer WHERE user_id = $userid AND answer_id IN $tabIdReponse";
