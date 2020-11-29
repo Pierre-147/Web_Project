@@ -1,4 +1,4 @@
-<!--Reponse avec affichage-->
+<!--Réponse avec affichage-->
 <div id="zoneResultQuiz">
     <h3 id="titleQuiz">Quiz <?php echo($varquiz." : ".$title);?></h3>
     <br/>

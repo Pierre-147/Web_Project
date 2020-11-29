@@ -7,7 +7,7 @@
         
     }
 
-    //on definit les variables
+    //on définit les variables
     $user_email1 = isset($_POST["email1"])?$_POST["email1"]:"";;
     $prenom = isset($_POST["prenom"])?$_POST["prenom"]:"";
     $nom = isset($_POST["nom"])?$_POST["nom"]:"";

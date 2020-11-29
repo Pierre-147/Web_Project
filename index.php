@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <?php
-    session_start();       //on demarre la session
+    session_start();       //on démarre la session
     //ouverture bdd
     include('model/ouverture.php');
     include("model/getNameByID.php");
@@ -23,7 +23,7 @@
     }
     
 
-    //si on est connecte, on redirige vers notre page de compte
+    //si on est connecté, on redirige vers notre page de compte
     $page = $_GET['page'];
     if ($page=="createAccount"){
         if($name!="visiteur"){
@@ -31,14 +31,14 @@
         }
     }
 
-    //redirection des quizz si on est pas connecté
+    //redirection des quizz si on n'est pas connecté
     if ($page!="homepage" && $page!="account" && $page!="deconnexion" && $page!="verifConnexion" && $page!="verifCreation"){
         if($name=="visiteur"){
             $page="createAccount";
         }
     }
 
-    //reset des messages d'erreur de connection
+    //reset des messages d'erreur de connexion
     if($page != "createAccount")
     {
         $_SESSION["creation"]=NULL;
@@ -50,7 +50,7 @@
         <meta charset="iso-8859-1"/>
         <link href='css/body.css' rel='stylesheet'>    
         <?php 
-        //differentes vues
+        //différentes vues
         if ($page== 'homepage')
         {
             ?>
@@ -105,7 +105,7 @@
         <div id="page-container">
             <?php
             include('vues/header.php');
-            //differentes vues
+            //différentes vues
             if ($page== 'homepage')
             {
                 include('vues/homePage.php');

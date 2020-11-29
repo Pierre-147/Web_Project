@@ -19,10 +19,10 @@
             $varquiz=1;
             //on charge le quiz 1
             include("model/loadQuizz.php");
-            //on recupere les reponses
+            //on récupère les réponses
             include('model/getAnswer.php');
             if ($date!=null){
-                //on inclut la verification avec affichage
+                //on inclut la vérification avec affichage
                 include('controler/repQuizWithDisplay.php'); 
                 ?>
                 <div id="Supprimer">
@@ -37,10 +37,10 @@
             $varquiz=2;
             //on charge le quiz 2
             include("model/loadQuizz.php");
-            //on recupere les reponses
+            //on récupère les réponses
             include('model/getAnswer.php');
             if ($date!=null){
-                //on inclut la verification avec affichage
+                //on inclut la vérification avec affichage
                 include('controler/repQuizWithDisplay.php'); 
                 ?>
                 <div id="Supprimer">

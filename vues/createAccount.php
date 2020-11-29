@@ -37,8 +37,8 @@
         </div>
 
         <div class='Connection'>
-            <h1> Connecter vous !</h1>
-            <!--creation du formulaire de connexion-->
+            <h1> Connectez vous !</h1>
+            <!--création du formulaire de connexion-->
             <form method="POST" action=<?php echo("index.php?page=verifConnexion")?>>
                 <br />
                 <label for="email"> E-Mail :  </label>

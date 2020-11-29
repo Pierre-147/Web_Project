@@ -20,7 +20,7 @@ function writeValue($database, $user, $answerId, $value, $dateTime)
     ));
 }
 
-//ecriture dans la base de donnée
+//écriture dans la base de données
 $i=0;
 foreach($_POST as $elem)
 {
@@ -33,9 +33,9 @@ foreach($_POST as $elem)
             $id = substr($el, 2, strlen($el));
             writeID($database, $user, $id, $dateTime);
         }
-        else        //input text ou selecteur vide (ne doit pas etre ecrit dans la bdd)
+        else        //input text ou sélecteur vide (ne doit pas être écrit dans la bdd)
         {
-            if (strpos($tabKey[$i], "select") === false)        //input donc on peut ecrire
+            if (strpos($tabKey[$i], "select") === false)        //input donc on peut écrire
             {
                 $value = $el;
                 $id = $tabKey[$i];

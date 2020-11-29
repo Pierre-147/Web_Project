@@ -1,6 +1,6 @@
 <?php
 $score = 0;     //score
-$total = 0;     //combien de question
+$total = 0;     //combien de questions
 
 $i=0;
 foreach($tabValidation as $question)

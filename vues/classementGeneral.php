@@ -9,16 +9,16 @@
     if (isset($_GET["varquiz"]))
     {
         $varquiz=$_GET["varquiz"];
-        //on recupere les utilisateurs,leurs scores et date
+        //on récupère les utilisateurs, leur score et date
         include('model/rankingUser.php');
         //fonction
         include('model/utilityQuizz.php');
-        //on rajoute la fonctions de verification
+        //on rajoute la fonction de vérification
         include('controler/fonctionVerif.php');
         include('model/loadQuizz.php');
         ?>
         <div id="tab">
-        <!--On creer le tableau des resultats-->
+        <!--On crée le tableau des résultats-->
         <table>
         <caption>Classement général</caption>
         <tr>
@@ -28,7 +28,7 @@
             <th>Date</th>
         </tr>
         <?php
-        //on recupere les reponses des users et on calcule leurs resultats
+        //on récupere les réponses des users et on calcule leurs resultats
         $tabUser=array();
         foreach($tabprenom as $names)
         {
