@@ -1,4 +1,5 @@
 <?php
+
     $tabIdReponse = get_quizz_answer_id($varquiz, $database);
 
     $req = "SELECT answer_id, answer_value FROM user_answer WHERE user_id = $user AND answer_id IN $tabIdReponse";
@@ -21,8 +22,11 @@
             }
         }
     }
+    #tabAnswers now hold the value of every user answer for a given quizz
+
     $req = "SELECT user_answer_date FROM user_answer WHERE user_id = $user AND answer_id IN $tabIdReponse";
     $res=$database->query($req);
+    #get the date at which those answer were given
     $date = $res->fetch()[0];
 ?>
 
