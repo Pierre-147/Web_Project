@@ -1,4 +1,10 @@
 <?php
+//fonction permetttant de corriger les reponses d'un quiz
+//$nbQuestion : numero de la question (index-1): question 1 => numero 0
+//$tabGoodAnswer : tableau de tableau contenant les bonnes reponses à question
+//$tabInput : tableau contenant les reponses entrees par l'utilisateur
+//$display : boolean determinant si on affiche la correction
+//retourne un score 1 si reponse juste, 0 sinon
 function verifQuiz($nbQuestion, $tabGoodAnswer, $tabInput, $display)
 {
     $repOk = $tabGoodAnswer[$nbQuestion];

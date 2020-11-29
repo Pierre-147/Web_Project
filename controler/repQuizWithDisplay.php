@@ -5,6 +5,7 @@
     <?php
     $i=0;
     $score = 0;
+    //on affiche le recap des questions et les reponses avec correction
     foreach($tabValidation as $question)
     {   
         ?>

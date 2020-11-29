@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 21, 2020 at 05:45 PM
+-- Generation Time: Nov 29, 2020 at 03:25 PM
 -- Server version: 8.0.22-0ubuntu0.20.04.2
 -- PHP Version: 7.4.3
 
@@ -153,9 +153,7 @@ INSERT INTO `user` (`user_id`, `user_last_name`, `user_first_name`, `user_adress
 (2, 'Niclas', 'Pierre', NULL, NULL, NULL, 'pass', 'pierre.niclas@student.yncrea.fr'),
 (3, 'Chopineau', 'Maxence', NULL, NULL, NULL, 'mot1', 'maxence.chopineau@student.yncrea.fr'),
 (4, 'Gross', 'Michael', NULL, NULL, NULL, 'mot2', 'michael.gross@student.yncrea.fr'),
-(5, 'Delannoy', 'Cyril', NULL, NULL, NULL, 'mot3', 'cyril.delannoy@student.yncrea.fr'),
-(6, '', '', '', '', NULL, '', ''),
-(7, '', '', '', '', NULL, '', '');
+(5, 'Delannoy', 'Cyril', NULL, NULL, NULL, 'mot3', 'cyril.delannoy@student.yncrea.fr');
 
 -- --------------------------------------------------------
 
@@ -183,7 +181,24 @@ INSERT INTO `user_answer` (`user_answer_id`, `user_id`, `answer_id`, `user_answe
 (285, 1, 30, '2020-11-21 16:43:00', ''),
 (286, 1, 14, '2020-11-21 16:44:00', NULL),
 (287, 1, 23, '2020-11-21 16:44:00', NULL),
-(288, 1, 30, '2020-11-21 16:44:00', '');
+(288, 1, 30, '2020-11-21 16:44:00', ''),
+(302, 1, 11, '2020-11-22 08:43:00', ''),
+(303, 1, 31, '2020-11-22 08:43:00', ''),
+(353, 2, 23, '2020-11-26 21:46:00', NULL),
+(354, 2, 30, '2020-11-26 21:46:00', ''),
+(371, 4, 1, '2020-11-27 22:34:00', NULL),
+(372, 4, 5, '2020-11-27 22:34:00', NULL),
+(373, 4, 6, '2020-11-27 22:34:00', NULL),
+(374, 4, 10, '2020-11-27 22:34:00', NULL),
+(375, 4, 11, '2020-11-27 22:34:00', '1977'),
+(376, 4, 31, '2020-11-27 22:34:00', '1'),
+(377, 4, 32, '2020-11-27 22:34:00', NULL),
+(378, 4, 33, '2020-11-27 22:34:00', NULL),
+(379, 4, 34, '2020-11-27 22:34:00', NULL),
+(380, 4, 36, '2020-11-27 22:34:00', NULL),
+(381, 4, 37, '2020-11-27 22:34:00', NULL),
+(382, 4, 39, '2020-11-27 22:34:00', NULL),
+(384, 4, 30, '2020-11-29 14:20:00', '');
 
 --
 -- Indexes for dumped tables
@@ -248,13 +263,13 @@ ALTER TABLE `quizz`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int NOT NULL AUTO_INCREMENT COMMENT 'user identifiant', AUTO_INCREMENT=8;
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT COMMENT 'user identifiant', AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user_answer`
 --
 ALTER TABLE `user_answer`
-  MODIFY `user_answer_id` int NOT NULL AUTO_INCREMENT COMMENT 'User answer identifiant', AUTO_INCREMENT=289;
+  MODIFY `user_answer_id` int NOT NULL AUTO_INCREMENT COMMENT 'User answer identifiant', AUTO_INCREMENT=385;
 
 --
 -- Constraints for dumped tables

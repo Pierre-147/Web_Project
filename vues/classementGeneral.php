@@ -38,7 +38,7 @@
             if($date!=null)
                 array_push($tabUser, array($names[1], $names[0], $date, $score, $total));
         }
-        //tri à bulles
+        //tri à bulles, on tri par ordre decroissant de score et si egalite par date la date la plus recente
         for($i=count($tabUser)-1; $i>0; $i--)
         {
             for($j=0; $j<=$i-1; $j++)

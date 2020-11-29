@@ -1,4 +1,5 @@
 <?php
+//on affiche question par question
 $i=0;
 foreach($tabQuestion as $question)
 {
@@ -7,8 +8,13 @@ foreach($tabQuestion as $question)
     <div id="reponsePossible">
         <p>
             <?php
-             switch($tabTypeQuestion[$i])
-             {
+            //on change le type de reponse proposee (checkbox, radio...)
+            //format du post cree :
+            //input => POST['AnswerID'] = valeur entre par user
+            //select => POST['select+nbQuestion'] = answerID_selected
+            //radio, checkbox => POST['nbQuestion'] = ID+answerID_selected 
+            switch($tabTypeQuestion[$i])
+            {
                  case "input":
                      ?>
                      <input type="number" name=<?php echo($tabAnswerID[$i][0]."[]");?> placeholder="0" min="0" max="3000"> 

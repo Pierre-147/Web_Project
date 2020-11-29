@@ -1,8 +1,6 @@
 <?php
     $tabIdReponse = get_quizz_answer_id($varquiz, $database);
 
-
-
     $req = "SELECT answer_id, answer_value FROM user_answer WHERE user_id = $user AND answer_id IN $tabIdReponse";
     $res=$database->query($req);
     $tabAnswer = array();

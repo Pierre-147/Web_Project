@@ -18,7 +18,7 @@
     $mdp1 = isset($_POST["password1"])?$_POST["password1"]:"";
     $mdp2 = isset($_POST["password2"])?$_POST["password2"]:"";
 
-
+    //on ajuste le format de date 
     if (empty($_POST["dateNaissance"]))
     {
         $dateNaissance = null;

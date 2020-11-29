@@ -13,16 +13,6 @@
         $name= getName($_SESSION["id"], $database) ;
     }
 
-    if(!isset($_GET['page'])){
-        if (!isset($_GET['connected']) || $_GET['connected']==false){
-            $_GET['page'] = 'homepage';
-        }
-        else{
-            $_GET['page'] = 'createAccount';
-        }
-    }
-    
-
     //si on est connecté, on redirige vers notre page de compte
     $page = $_GET['page'];
     if ($page=="createAccount"){
@@ -45,8 +35,8 @@
     }
     ?>
 
+    <!--Differents head selon les pages, on change le title ainsi que les differents css-->
     <head>
-        
         <meta charset="iso-8859-1"/>
         <link href='css/body.css' rel='stylesheet'>    
         <?php 
@@ -101,6 +91,7 @@
         ?>
     </head>
 
+    <!--Differentes vues-->
     <body>
         <div id="page-container">
             <?php
